@@ -1,0 +1,56 @@
+name: Deploy
+
+# Every push to main builds the showroom (every demo, one static site) and
+# publishes it on GitHub Pages (demo.leuria.dev).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # The demos build from the Leuria sources in ../leuria, as on a dev machine.
+      - uses: actions/checkout@v4
+        with:
+          path: demo
+      - uses: actions/checkout@v4
+        with:
+          repository: leur-ia/leuria
+          path: leuria
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: demo/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm install --frozen-lockfile
+        working-directory: leuria
+      - run: pnpm install --frozen-lockfile
+        working-directory: demo
+      - run: pnpm build
+        working-directory: demo
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
