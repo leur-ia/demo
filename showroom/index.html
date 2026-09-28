@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Leuria showroom</title>
+<meta name="description" content="Websites whose AI features run on the visitor's own AI: a shop, a notes site with search by meaning, and a field guide with a team builder.">
+<link rel="stylesheet" href="tokens.css">
+<style>
+@font-face { font-family: "Leuria Sans"; font-weight: 200 800; font-display: swap; src: url(fonts/plus-jakarta-sans-latin-wght-normal.woff2) format("woff2-variations"); }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 "Leuria Sans", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.hero {
+  position: relative; overflow: hidden; isolation: isolate; border-radius: var(--radius-6); margin: 24px 0 40px; padding: 64px 48px;
+  background:
+    radial-gradient(circle at 12% 12%, var(--atmo-blush) 0%, transparent 52%),
+    radial-gradient(circle at 88% 18%, var(--atmo-ice) 0%, transparent 54%),
+    radial-gradient(circle at 82% 92%, var(--atmo-mint) 0%, transparent 56%),
+    radial-gradient(circle at 14% 92%, var(--atmo-lavender) 0%, transparent 56%),
+    var(--atmo-base);
+}
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 800; font-size: 26px; letter-spacing: -0.04em; text-decoration: none; }
+.hero h1 { margin: 28px 0 12px; max-width: 720px; font-size: clamp(36px, 6vw, 60px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); }
+.hero p { margin: 0; max-width: 600px; font-size: 18px; color: var(--pearl-12); }
+.demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 48px; }
+.demo { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: var(--radius-4); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border), var(--shadow-1); text-decoration: none; transition: box-shadow var(--timing-fast) var(--easing-standard), transform var(--timing-fast) var(--easing-standard); }
+.demo:hover { box-shadow: inset 0 0 0 1px var(--border-strong), var(--shadow-3); transform: translateY(-2px); }
+.demo h2 { margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+.demo p { margin: 0; color: var(--text-muted); font-size: 15px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.shows { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.shows span { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-text); }
+.also { display: inline-block; margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--accent-text); }
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding: 32px 0 56px; border-top: 1px solid var(--border); }
+.how h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
+.how p { margin: 0; font-size: 14px; color: var(--text-muted); }
+footer { padding: 24px 0 40px; font-size: 13px; color: var(--text-muted); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 640px) { .hero { padding: 40px 24px; } .wrap { padding: 0 16px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <a class="logo" href="./">
+      <svg width="30" height="30" viewBox="53 30 256 256" aria-hidden="true"><path fill="currentColor" d="M181 61 C184 74 191 82 206 86 C191 90 184 98 181 111 C178 98 171 90 156 86 C171 82 178 74 181 61 Z M59 92 C60 109 67 128 79 143 C91 158 105 168 124 174 C149 182 164 193 171 207 C177 219 177 239 177 255 C182 255 182 240 184 226 C188 199 201 187 223 179 C247 171 270 158 284 142 C298 127 303 109 303 92 C298 91 292 101 284 108 C265 125 245 130 226 126 C217 124 211 114 205 112 C199 110 199 116 199 121 C198 127 191 130 181 130 C171 130 165 127 163 121 C162 116 165 110 159 111 C151 112 148 122 137 126 C118 131 98 125 78 109 C69 102 65 91 59 92 Z"/></svg>
+      leuria
+    </a>
+    <h1>Websites that run on your AI.</h1>
+    <p>Each demo below is a website whose AI features use the AI you already have, through Leuria on your computer. Without it, they fall back to your browser's AI or a small model in the page.</p>
+  </header>
+
+  <main class="demos">
+    <a class="demo" href="shop/">
+      <span class="eyebrow">Shop</span>
+      <h2>Kiln &amp; Co.</h2>
+      <p>A mug shop with an assistant that looks up prices and stock with the page's own tools, and an order form filled in from a free-text message.</p>
+      <span class="also">Also in plain HTML, without a framework: see the link in the shop.</span>
+      <div class="shows"><span>Connect button</span><span>Page tools</span><span>Structured output</span></div>
+    </a>
+    <a class="demo" href="notes/">
+      <span class="eyebrow">Notes</span>
+      <h2>Maren's notebook</h2>
+      <p>A potter's digital garden. Search it by meaning, see notes related in meaning, and ask questions answered from the notes with links to them.</p>
+      <div class="shows"><span>Search by meaning</span><span>Related notes</span><span>Answers with sources</span></div>
+    </a>
+    <a class="demo" href="dex/">
+      <span class="eyebrow">Field guide</span>
+      <h2>Hollowmark</h2>
+      <p>A guide to 48 original creatures. Describe one in your own words to find it, and have the AI build a team for a trip or an opponent.</p>
+      <div class="shows"><span>Search by meaning</span><span>Similar entries</span><span>Team builder</span></div>
+    </a>
+  </main>
+
+  <section class="how">
+    <div><h3>Your AI, your choice</h3><p>Leuria connects the AI you already use, or a model on your computer. You approve each site once.</p></div>
+    <div><h3>The site can't see your files</h3><p>A site only talks to your AI through tools its own page provides.</p></div>
+    <div><h3>Search stays on your device</h3><p>The notes and the guide are indexed in your browser, with your own model or a small one in the page.</p></div>
+  </section>
+  <footer>These demos are examples: no mug will be shipped.</footer>
+</div>
+</body>
+</html>

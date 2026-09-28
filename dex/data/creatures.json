@@ -1,0 +1,1458 @@
+[
+  {
+    "id": 1,
+    "name": "Cindrel",
+    "elements": [
+      "ember"
+    ],
+    "species": "Ash fox",
+    "habitat": "volcanic scree",
+    "height": 0.5,
+    "weight": 6.8,
+    "description": "Cindrel dens in the warm cracks of volcanic scree and sleeps curled around its own glowing tail. Kits play-fight by flicking sparks at each other, and a scorched ring of grass usually marks where a litter was raised.",
+    "abilities": [
+      "Warm den",
+      "Spark tail"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 40,
+      "speed": 65,
+      "focus": 50
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 2,
+    "shape": "quadruped",
+    "colors": [
+      "#e0673a",
+      "#3b2a24"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ashkarra",
+    "elements": [
+      "ember"
+    ],
+    "species": "Ash fox",
+    "habitat": "mountain passes",
+    "height": 1.1,
+    "weight": 24.0,
+    "description": "Ashkarra roam high mountain passes and seek out walkers caught in blizzards, lying across them until help arrives. Their fur holds heat like banked coals, and shepherds leave out scraps to keep a pair nearby through the winter.",
+    "abilities": [
+      "Banked coals",
+      "Pathfinder"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 72,
+      "defense": 55,
+      "speed": 80,
+      "focus": 68
+    },
+    "evolvesFrom": 1,
+    "evolvesTo": 3,
+    "shape": "quadruped",
+    "colors": [
+      "#c9512b",
+      "#f2c14e"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Vulcarrow",
+    "elements": [
+      "ember",
+      "gale"
+    ],
+    "species": "Blaze fox",
+    "habitat": "caldera rims",
+    "height": 1.6,
+    "weight": 52.0,
+    "description": "Vulcarrow ride the updrafts above active calderas, gliding on flaps of heat-stiffened fur stretched between their legs. When one dives, the air behind it shimmers for a long moment, and dry grass below can catch before it lands.",
+    "abilities": [
+      "Thermal glide",
+      "Cinder dive"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 105,
+      "defense": 70,
+      "speed": 110,
+      "focus": 90
+    },
+    "evolvesFrom": 2,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#a83a1e",
+      "#ffd27a"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Drisket",
+    "elements": [
+      "tide"
+    ],
+    "species": "Brook otter",
+    "habitat": "riverbanks",
+    "height": 0.5,
+    "weight": 5.2,
+    "description": "Drisket slide down muddy banks for no reason anyone can find except fun, and a family will repeat the same slide all afternoon. They keep smooth pebbles in a fold of skin under one arm and trade them with each other.",
+    "abilities": [
+      "Slick coat",
+      "Pebble pouch"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 48,
+      "defense": 45,
+      "speed": 60,
+      "focus": 45
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 5,
+    "shape": "quadruped",
+    "colors": [
+      "#4a8fc9",
+      "#e8dcc4"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Surlotta",
+    "elements": [
+      "tide"
+    ],
+    "species": "Surf otter",
+    "habitat": "rocky coasts",
+    "height": 1.2,
+    "weight": 30.0,
+    "description": "Surlotta work the surf line in loose teams, herding crabs into tidepools and cracking them on stones balanced on their chests. They are strong enough to tow a small rowboat and sometimes do, apparently just for the company.",
+    "abilities": [
+      "Tidepool herd",
+      "Riptide"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 70,
+      "defense": 62,
+      "speed": 82,
+      "focus": 58
+    },
+    "evolvesFrom": 4,
+    "evolvesTo": 6,
+    "shape": "quadruped",
+    "colors": [
+      "#2c6ea8",
+      "#f0e6d0"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Maremoth",
+    "elements": [
+      "tide",
+      "stone"
+    ],
+    "species": "Reef walrus",
+    "habitat": "cold reefs",
+    "height": 3.2,
+    "weight": 780.0,
+    "description": "An old Maremoth grows a crust of barnacle-stone so thick that seabirds nest on its back. It wedges itself against the reef during storms and takes the worst of the waves, so fishing villages treat a resident Maremoth as a kind of harbour wall.",
+    "abilities": [
+      "Living breakwater",
+      "Barnacle hide"
+    ],
+    "stats": {
+      "hp": 120,
+      "attack": 98,
+      "defense": 110,
+      "speed": 50,
+      "focus": 72
+    },
+    "evolvesFrom": 5,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#3a5f7d",
+      "#b7a58a"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Fawnleaf",
+    "elements": [
+      "moss"
+    ],
+    "species": "Sprout fawn",
+    "habitat": "forest glades",
+    "height": 0.7,
+    "weight": 11.0,
+    "description": "A Fawnleaf's spots are tiny leaves that turn toward the sun, so a fawn standing still in a clearing slowly twists to face noon. It bleats softly when rain is coming and folds its ears down over its leaves.",
+    "abilities": [
+      "Sun-seeking",
+      "Leaf veil"
+    ],
+    "stats": {
+      "hp": 48,
+      "attack": 45,
+      "defense": 45,
+      "speed": 62,
+      "focus": 50
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 8,
+    "shape": "quadruped",
+    "colors": [
+      "#7cbf5a",
+      "#f1e2b8"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Thornbuck",
+    "elements": [
+      "moss"
+    ],
+    "species": "Bramble deer",
+    "habitat": "old orchards",
+    "height": 1.4,
+    "weight": 62.0,
+    "description": "Thornbuck wander through abandoned orchards and prune them without meaning to, nibbling away dead wood and leaving the healthy branches. Farmers who let one graze their land often find the next harvest heavier than the last.",
+    "abilities": [
+      "Pruning bite",
+      "Bramble antlers"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 78,
+      "defense": 70,
+      "speed": 72,
+      "focus": 60
+    },
+    "evolvesFrom": 7,
+    "evolvesTo": 9,
+    "shape": "quadruped",
+    "colors": [
+      "#4f8a3a",
+      "#8a5a3b"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Elderhart",
+    "elements": [
+      "moss",
+      "glow"
+    ],
+    "species": "Grove stag",
+    "habitat": "ancient forests",
+    "height": 2.1,
+    "weight": 190.0,
+    "description": "Elderhart antlers carry a moss that gives off a pale green light, and lost animals follow that glow out of the deepest woods. Most people see one at most a few times in their life, always at the edge of a clearing and always walking away.",
+    "abilities": [
+      "Guiding light",
+      "Rootbond"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 100,
+      "defense": 95,
+      "speed": 80,
+      "focus": 100
+    },
+    "evolvesFrom": 8,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#3e7a3a",
+      "#d8f7a1"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Fizzmite",
+    "elements": [
+      "spark"
+    ],
+    "species": "Static grub",
+    "habitat": "fields under power lines",
+    "height": 0.2,
+    "weight": 0.4,
+    "description": "Fizzmite chew the coating off fence wires and store the charge in their soft bodies, which crackle when touched. A field full of them hums faintly at dusk, and radios nearby pick up a steady clicking.",
+    "abilities": [
+      "Static store",
+      "Crackle"
+    ],
+    "stats": {
+      "hp": 38,
+      "attack": 50,
+      "defense": 40,
+      "speed": 55,
+      "focus": 62
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 11,
+    "shape": "insect",
+    "colors": [
+      "#e8c21f",
+      "#4a4a5a"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Chrysarc",
+    "elements": [
+      "spark"
+    ],
+    "species": "Charged cocoon",
+    "habitat": "pylons and metal fences",
+    "height": 0.5,
+    "weight": 3.1,
+    "description": "Chrysarc hang motionless from pylons and tall metal fences, pulsing gently while they wait to change. The shell lets off a sharp snap at anything that brushes it, so birds learn to keep well clear.",
+    "abilities": [
+      "Hard shell",
+      "Snap discharge"
+    ],
+    "stats": {
+      "hp": 62,
+      "attack": 55,
+      "defense": 95,
+      "speed": 30,
+      "focus": 95
+    },
+    "evolvesFrom": 10,
+    "evolvesTo": 12,
+    "shape": "insect",
+    "colors": [
+      "#d1a91a",
+      "#6b5b2e"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Arclume",
+    "elements": [
+      "spark"
+    ],
+    "species": "Storm moth",
+    "habitat": "the edges of thunderclouds",
+    "height": 1.0,
+    "weight": 4.5,
+    "description": "Arclume fly out ahead of thunderstorms, their wings flickering in time with the lightning behind them. Villagers who see a swarm drifting over the hills take in their washing and bring the animals inside well before the first raindrop.",
+    "abilities": [
+      "Stormcall",
+      "Flicker wing"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 95,
+      "defense": 60,
+      "speed": 115,
+      "focus": 110
+    },
+    "evolvesFrom": 11,
+    "evolvesTo": null,
+    "shape": "insect",
+    "colors": [
+      "#f5d33a",
+      "#3d3a6b"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Nivlet",
+    "elements": [
+      "frost"
+    ],
+    "species": "Snow cub",
+    "habitat": "open tundra",
+    "height": 0.6,
+    "weight": 14.0,
+    "description": "Nivlet tumble through fresh snow with their mouths wide open, eating the flakes as they fall. Their fur is so white that a cub lying still on a drift can only be found by the small cloud of its breath.",
+    "abilities": [
+      "Snowblind",
+      "Thick fur"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 50,
+      "speed": 45,
+      "focus": 45
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 14,
+    "shape": "quadruped",
+    "colors": [
+      "#e9f3fa",
+      "#7aa7c7"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Hoarsel",
+    "elements": [
+      "frost"
+    ],
+    "species": "Frost bear",
+    "habitat": "glacier foothills",
+    "height": 1.5,
+    "weight": 140.0,
+    "description": "Hoarsel spend the short summer fishing and gorging on berries, nearly doubling their weight before the first snow. Frost forms on their coats even in sunshine, and they rub against rocks to scrape the ice off in long white curls.",
+    "abilities": [
+      "Rime coat",
+      "Glutton"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 75,
+      "defense": 72,
+      "speed": 48,
+      "focus": 60
+    },
+    "evolvesFrom": 13,
+    "evolvesTo": 15,
+    "shape": "quadruped",
+    "colors": [
+      "#cfe3f0",
+      "#5c7f99"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Glaciarch",
+    "elements": [
+      "frost",
+      "stone"
+    ],
+    "species": "Glacier bear",
+    "habitat": "deep glaciers",
+    "height": 2.8,
+    "weight": 620.0,
+    "description": "Each autumn a Glaciarch digs into the glacier and does not come out until the thaw, sleeping for months beneath the ice with its heart slowed to a few beats a minute. Climbers have found them sealed in clear ice and taken them for boulders until one yawned.",
+    "abilities": [
+      "Long sleep",
+      "Glacier hide"
+    ],
+    "stats": {
+      "hp": 125,
+      "attack": 110,
+      "defense": 115,
+      "speed": 40,
+      "focus": 70
+    },
+    "evolvesFrom": 14,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#a9cde3",
+      "#6f6a64"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Hushling",
+    "elements": [
+      "shade"
+    ],
+    "species": "Dusk chick",
+    "habitat": "hollow trees",
+    "height": 0.3,
+    "weight": 1.2,
+    "description": "Hushling spend the daylight hours packed together inside hollow trunks, silent even when disturbed. Their feathers soak up sound, so a flock leaving the tree at sunset makes no noise at all.",
+    "abilities": [
+      "Soft feathers",
+      "Silent flight"
+    ],
+    "stats": {
+      "hp": 42,
+      "attack": 48,
+      "defense": 38,
+      "speed": 62,
+      "focus": 58
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 17,
+    "shape": "bird",
+    "colors": [
+      "#4b3f6b",
+      "#c9b8e8"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Veilwren",
+    "elements": [
+      "shade"
+    ],
+    "species": "Shadow wren",
+    "habitat": "old forest canopy",
+    "height": 0.5,
+    "weight": 2.4,
+    "description": "Veilwren wait until the sun is fully gone before hunting moths among the treetops. They can slip into the shadow of a branch so completely that watchers swear the bird has vanished.",
+    "abilities": [
+      "Shadow slip",
+      "Keen ears"
+    ],
+    "stats": {
+      "hp": 58,
+      "attack": 68,
+      "defense": 50,
+      "speed": 90,
+      "focus": 74
+    },
+    "evolvesFrom": 16,
+    "evolvesTo": 18,
+    "shape": "bird",
+    "colors": [
+      "#3a2f55",
+      "#8d7fb8"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Nightquill",
+    "elements": [
+      "shade",
+      "gale"
+    ],
+    "species": "Moon hawk",
+    "habitat": "moorland cliffs",
+    "height": 1.3,
+    "weight": 18.0,
+    "description": "Nightquill hunt only by moonlight, gliding low over the moors while the rest of the world sleeps; on moonless nights they stay on their ledges and will not fly at all. A farmer who hears the hiss of their wings knows his henhouse is being counted.",
+    "abilities": [
+      "Moonsight",
+      "Quiet stoop"
+    ],
+    "stats": {
+      "hp": 78,
+      "attack": 105,
+      "defense": 68,
+      "speed": 115,
+      "focus": 94
+    },
+    "evolvesFrom": 17,
+    "evolvesTo": null,
+    "shape": "bird",
+    "colors": [
+      "#2b2340",
+      "#e3dcff"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Zephlet",
+    "elements": [
+      "gale"
+    ],
+    "species": "Breeze finch",
+    "habitat": "windy hilltops",
+    "height": 0.3,
+    "weight": 0.9,
+    "description": "Zephlet flap poorly and instead wait on hilltops for a strong gust, then let themselves be flung into the sky. A flock can cross a whole valley without a single wingbeat if the wind is right.",
+    "abilities": [
+      "Gust rider",
+      "Light bones"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "speed": 80,
+      "focus": 50
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 20,
+    "shape": "bird",
+    "colors": [
+      "#9fd8c8",
+      "#f4f1e8"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Tempestral",
+    "elements": [
+      "gale"
+    ],
+    "species": "Gale falcon",
+    "habitat": "open sky above the clouds",
+    "height": 1.5,
+    "weight": 16.0,
+    "description": "Tempestral live almost entirely in the air and even sleep on the wing, high above the clouds. Sailors say a Tempestral circling a ship means a fair wind for the rest of the voyage, and old captains still toss one a fish for luck.",
+    "abilities": [
+      "Sky sleeper",
+      "Tailwind"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 60,
+      "speed": 125,
+      "focus": 85
+    },
+    "evolvesFrom": 19,
+    "evolvesTo": null,
+    "shape": "bird",
+    "colors": [
+      "#2fa89a",
+      "#e8f5f0"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Pebbrok",
+    "elements": [
+      "stone"
+    ],
+    "species": "Pebble imp",
+    "habitat": "riverbeds",
+    "height": 0.6,
+    "weight": 40.0,
+    "description": "Pebbrok gather stones from riverbeds and stack them into little towers, then knock them over and start again. They swallow gravel to help grind up the lichen they eat, and you can hear it rattle when they run.",
+    "abilities": [
+      "Stacker",
+      "Gravel gut"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 60,
+      "defense": 70,
+      "speed": 30,
+      "focus": 40
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 22,
+    "shape": "biped",
+    "colors": [
+      "#9a8772",
+      "#5b4e44"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Cragmaul",
+    "elements": [
+      "stone",
+      "iron"
+    ],
+    "species": "Quarry giant",
+    "habitat": "abandoned mines",
+    "height": 2.2,
+    "weight": 480.0,
+    "description": "Cragmaul lumber through abandoned mines, pounding the walls with fists veined in raw ore. Old miners claim that wherever a Cragmaul has been digging, the richest seam is never far away.",
+    "abilities": [
+      "Ore fist",
+      "Rockslide"
+    ],
+    "stats": {
+      "hp": 100,
+      "attack": 115,
+      "defense": 120,
+      "speed": 35,
+      "focus": 50
+    },
+    "evolvesFrom": 21,
+    "evolvesTo": null,
+    "shape": "biped",
+    "colors": [
+      "#7a6a58",
+      "#b0b8c0"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Rivettle",
+    "elements": [
+      "iron"
+    ],
+    "species": "Bolt beetle",
+    "habitat": "scrapyards",
+    "height": 0.3,
+    "weight": 3.6,
+    "description": "Rivettle graze on rust in scrapyards, leaving the metal underneath shiny and clean. Their shells are riveted like the plates of an old ship, and a frightened one rolls into a ball that clangs when it lands.",
+    "abilities": [
+      "Rust eater",
+      "Plate roll"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 70,
+      "speed": 40,
+      "focus": 35
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 24,
+    "shape": "insect",
+    "colors": [
+      "#8a96a3",
+      "#b5652e"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Clankhorn",
+    "elements": [
+      "iron"
+    ],
+    "species": "Anvil beetle",
+    "habitat": "foundries and forges",
+    "height": 1.1,
+    "weight": 95.0,
+    "description": "Clankhorn settle near forges, drawn by the ring of hammers, and answer each blow by striking their horn against the ground. Smiths sometimes keep one to test new blades against its shell.",
+    "abilities": [
+      "Anvil horn",
+      "Tempered shell"
+    ],
+    "stats": {
+      "hp": 78,
+      "attack": 100,
+      "defense": 120,
+      "speed": 45,
+      "focus": 57
+    },
+    "evolvesFrom": 23,
+    "evolvesTo": null,
+    "shape": "insect",
+    "colors": [
+      "#5f6b78",
+      "#d9a441"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Lumeby",
+    "elements": [
+      "glow"
+    ],
+    "species": "Lamp puff",
+    "habitat": "meadows at dusk",
+    "height": 0.3,
+    "weight": 0.8,
+    "description": "Lumeby float a hand's height off the ground and shine a little brighter when someone nearby is sad. Children in hill villages carry them to bed like lanterns, and the Lumeby drift home to the meadow by morning.",
+    "abilities": [
+      "Soft glow",
+      "Float"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 30,
+      "defense": 45,
+      "speed": 45,
+      "focus": 75
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 26,
+    "shape": "blob",
+    "colors": [
+      "#ffe9a8",
+      "#f7b6d2"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Halorae",
+    "elements": [
+      "glow",
+      "tide"
+    ],
+    "species": "Halo jelly",
+    "habitat": "warm lagoons",
+    "height": 1.8,
+    "weight": 12.0,
+    "description": "Halorae gather in warm lagoons on calm nights and pulse together until the whole bay shines. Their trailing ribbons numb rather than sting, and injured fish shelter among them to heal.",
+    "abilities": [
+      "Soothing ribbon",
+      "Tide glow"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 70,
+      "defense": 70,
+      "speed": 65,
+      "focus": 120
+    },
+    "evolvesFrom": 25,
+    "evolvesTo": null,
+    "shape": "blob",
+    "colors": [
+      "#f0a3d0",
+      "#6fd3e8"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Saltwisp",
+    "elements": [
+      "gale"
+    ],
+    "species": "Harbour chick",
+    "habitat": "harbour posts",
+    "height": 0.3,
+    "weight": 0.7,
+    "description": "Saltwisp chicks squat on harbour posts screaming at every boat that comes in until someone throws them a scrap. They can already dive by their second week, though they usually come back up with a beakful of seaweed.",
+    "abilities": [
+      "Harbour cry",
+      "Shallow dive"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 38,
+      "speed": 65,
+      "focus": 50
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 28,
+    "shape": "bird",
+    "colors": [
+      "#dfe8ee",
+      "#4a8fc9"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Shoalsight",
+    "elements": [
+      "tide",
+      "gale"
+    ],
+    "species": "Shoal gull",
+    "habitat": "fishing harbours",
+    "height": 1.1,
+    "weight": 5.5,
+    "description": "A Shoalsight can spot the silver flicker of a fish shoal from a great height and circles above it calling until the boats arrive. Fishing families raise them from chicks, and a good one is handed down along with the boat.",
+    "abilities": [
+      "Far sight",
+      "Shoal call"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 78,
+      "defense": 58,
+      "speed": 98,
+      "focus": 100
+    },
+    "evolvesFrom": 27,
+    "evolvesTo": null,
+    "shape": "bird",
+    "colors": [
+      "#f2f4f5",
+      "#2f6fb0"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Bogglet",
+    "elements": [
+      "moss"
+    ],
+    "species": "Bog puff",
+    "habitat": "reedy marsh pools",
+    "height": 0.4,
+    "weight": 2.0,
+    "description": "Bogglet sit in marsh pools with only their bulging eyes above the water and can stay that way for an entire day. They strain the murk through their gills, and the water around them is always noticeably clearer.",
+    "abilities": [
+      "Filter gills",
+      "Still waters"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 45,
+      "defense": 50,
+      "speed": 45,
+      "focus": 55
+    },
+    "evolvesFrom": null,
+    "evolvesTo": 30,
+    "shape": "blob",
+    "colors": [
+      "#6d8b3c",
+      "#c7b36a"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Mirewood",
+    "elements": [
+      "moss",
+      "shade"
+    ],
+    "species": "Marsh serpent",
+    "habitat": "fog-bound marshes",
+    "height": 4.5,
+    "weight": 150.0,
+    "description": "Mirewood lie half-sunk in the peat with reeds growing from their backs and pass for fallen logs until they move. They feed on rot and stagnant sludge, so a marsh that one calls home smells of fresh rain instead of decay.",
+    "abilities": [
+      "Log mimic",
+      "Bog cleanse"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 85,
+      "speed": 60,
+      "focus": 90
+    },
+    "evolvesFrom": 29,
+    "evolvesTo": null,
+    "shape": "serpent",
+    "colors": [
+      "#3f5a34",
+      "#2a2230"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Echolark",
+    "elements": [
+      "gale"
+    ],
+    "species": "Mimic lark",
+    "habitat": "market towns",
+    "height": 0.2,
+    "weight": 0.3,
+    "description": "Echolark copy any sound they hear twice, from a creaking hinge to a child calling for its mother, and repeat it perfectly from the rooftops. Market traders have turned to answer a customer who turned out to be a bird on the awning.",
+    "abilities": [
+      "Perfect echo",
+      "Throw voice"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 55,
+      "speed": 100,
+      "focus": 100
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "bird",
+    "colors": [
+      "#c2a35a",
+      "#4d6b4a"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Scaldune",
+    "elements": [
+      "ember"
+    ],
+    "species": "Dune lizard",
+    "habitat": "deep desert",
+    "height": 1.3,
+    "weight": 45.0,
+    "description": "Scaldune bask on sand hot enough to cook on and are at their most sluggish in the cool hour before dawn. Desert caravans follow their tracks, because a Scaldune always knows the way to the nearest buried spring.",
+    "abilities": [
+      "Heat bask",
+      "Spring sense"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 95,
+      "defense": 90,
+      "speed": 70,
+      "focus": 60
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#d98a3d",
+      "#7a3b22"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Tilewhisk",
+    "elements": [
+      "iron",
+      "shade"
+    ],
+    "species": "Roof cat",
+    "habitat": "city rooftops",
+    "height": 0.5,
+    "weight": 4.8,
+    "description": "Tilewhisk prowl city rooftops, stepping between chimney pots without dislodging a single tile. Their claws are hard as nails and they keep the gutters free of pests, so landlords quietly leave out milk.",
+    "abilities": [
+      "Sure footing",
+      "Iron claws"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 82,
+      "defense": 70,
+      "speed": 105,
+      "focus": 68
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#56606b",
+      "#e3c77a"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Pudloam",
+    "elements": [
+      "moss"
+    ],
+    "species": "Loam puff",
+    "habitat": "village gardens",
+    "height": 0.8,
+    "weight": 18.0,
+    "description": "Pudloam are soft, warm and smell of turned earth after rain, and they are endlessly patient with children who climb on them, tug their leaves or fall asleep on top of them. When a toddler cries, a Pudloam shuffles over and settles beside it until it stops.",
+    "abilities": [
+      "Soft moss",
+      "Patient heart"
+    ],
+    "stats": {
+      "hp": 115,
+      "attack": 40,
+      "defense": 85,
+      "speed": 35,
+      "focus": 90
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "blob",
+    "colors": [
+      "#8bb86b",
+      "#6b4e36"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Quartzel",
+    "elements": [
+      "stone",
+      "glow"
+    ],
+    "species": "Crystal lizard",
+    "habitat": "deep caves",
+    "height": 0.9,
+    "weight": 22.0,
+    "description": "Quartzel grow crystals along their spines that give off a steady white light in total darkness. Cave explorers follow one through winding tunnels, and it has a habit of leading them back to the entrance when it gets bored.",
+    "abilities": [
+      "Crystal light",
+      "Tunnel sense"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 75,
+      "defense": 100,
+      "speed": 55,
+      "focus": 100
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#e7e2f5",
+      "#8a7f9e"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Crackleap",
+    "elements": [
+      "spark"
+    ],
+    "species": "Thunder frog",
+    "habitat": "marshes",
+    "height": 0.7,
+    "weight": 9.0,
+    "description": "Crackleap charge their legs by rubbing them against dry reeds, then cross a whole marsh in a single bound. Their croak crackles like a radio between stations and carries for miles on still evenings.",
+    "abilities": [
+      "Charged leap",
+      "Static croak"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 55,
+      "speed": 110,
+      "focus": 70
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "biped",
+    "colors": [
+      "#e6c229",
+      "#3f6e5a"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Rimefin",
+    "elements": [
+      "frost"
+    ],
+    "species": "Ice fish",
+    "habitat": "glacial lakes",
+    "height": 0.8,
+    "weight": 7.0,
+    "description": "Rimefin swim beneath the ice of glacial lakes all winter, their bodies too cold to freeze. Ice fishers cut holes where they gather, since larger fish follow them for the air bubbles they trail.",
+    "abilities": [
+      "Antifreeze",
+      "Bubble trail"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 75,
+      "defense": 80,
+      "speed": 85,
+      "focus": 80
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "fish",
+    "colors": [
+      "#bfe4f2",
+      "#4f7fa3"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Duskwyrm",
+    "elements": [
+      "shade"
+    ],
+    "species": "Cave wyrm",
+    "habitat": "lightless caverns",
+    "height": 5.0,
+    "weight": 210.0,
+    "description": "Duskwyrm have no eyes and hunt through lightless caverns by feeling the faintest movement of air across their scales. They are drawn to warmth, so cavers are taught to shade their lamps and never sleep beside an underground river.",
+    "abilities": [
+      "Tremor sense",
+      "Constrict"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 80,
+      "speed": 70,
+      "focus": 80
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "serpent",
+    "colors": [
+      "#2e2638",
+      "#7c6a92"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Anchorel",
+    "elements": [
+      "iron",
+      "tide"
+    ],
+    "species": "Wreck fish",
+    "habitat": "sunken shipwrecks",
+    "height": 1.6,
+    "weight": 160.0,
+    "description": "Anchorel make their homes in sunken shipwrecks and slowly grow iron scales from the metal they scrape off the hulls. Divers mark the wrecks they guard on their charts, because an Anchorel will ram anything that tries to carry cargo out.",
+    "abilities": [
+      "Hull scales",
+      "Ram"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 90,
+      "defense": 120,
+      "speed": 40,
+      "focus": 60
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "fish",
+    "colors": [
+      "#4a5a66",
+      "#2e7f9e"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Wickwing",
+    "elements": [
+      "glow",
+      "ember"
+    ],
+    "species": "Candle moth",
+    "habitat": "old libraries",
+    "height": 0.3,
+    "weight": 0.5,
+    "description": "Wickwing are drawn to open flames and gently put them out by fanning their wings, then glow softly in their place. Archivists once kept them to light reading rooms without any risk of fire.",
+    "abilities": [
+      "Snuff flame",
+      "Candlelight"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "speed": 95,
+      "focus": 110
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "insect",
+    "colors": [
+      "#ffd98a",
+      "#9b6a3a"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Brickhound",
+    "elements": [
+      "stone"
+    ],
+    "species": "Hearth hound",
+    "habitat": "farmsteads and townhouses",
+    "height": 1.0,
+    "weight": 90.0,
+    "description": "Brickhound sleep across the doorway with one ear pressed to the floor and wake at the first unfamiliar footstep, however late the hour. They never stir at the family's own steps, and a household with one rarely bothers to lock up.",
+    "abilities": [
+      "Watchful rest",
+      "Stone stance"
+    ],
+    "stats": {
+      "hp": 100,
+      "attack": 90,
+      "defense": 115,
+      "speed": 50,
+      "focus": 60
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#b0643e",
+      "#e8d7c3"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Thistledrift",
+    "elements": [
+      "moss"
+    ],
+    "species": "Seed drifter",
+    "habitat": "high winds over meadows",
+    "height": 0.4,
+    "weight": 0.2,
+    "description": "Thistledrift break free of their stalks in late summer and ride the high winds for weeks, sometimes crossing whole seas. Wherever one finally comes down, a patch of purple flowers appears the following spring.",
+    "abilities": [
+      "Windborne",
+      "Seed scatter"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 50,
+      "speed": 100,
+      "focus": 105
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "plant",
+    "colors": [
+      "#a88bd1",
+      "#7aa35a"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Gloamray",
+    "elements": [
+      "spark"
+    ],
+    "species": "Deep ray",
+    "habitat": "open ocean depths",
+    "height": 2.4,
+    "weight": 70.0,
+    "description": "Gloamray glide through the deep ocean with faint blue sparks running along the edges of their fins. A single pulse can stun a whole school of fish, and sailors know them by the flashes that sometimes light the water beneath a ship.",
+    "abilities": [
+      "Stun pulse",
+      "Deep glide"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 100,
+      "defense": 70,
+      "speed": 85,
+      "focus": 90
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "fish",
+    "colors": [
+      "#274b7a",
+      "#6de0ff"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Gearhare",
+    "elements": [
+      "spark"
+    ],
+    "species": "Coil hare",
+    "habitat": "city parks",
+    "height": 0.6,
+    "weight": 4.0,
+    "description": "Gearhare sprint across city parks so fast that the grass smokes behind them, then stop dead and sit perfectly still. They nest inside humming transformer boxes, and a neighbourhood blackout is sometimes just a Gearhare that got too comfortable.",
+    "abilities": [
+      "Quickstart",
+      "Overcharge"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 75,
+      "defense": 60,
+      "speed": 120,
+      "focus": 70
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#d8b230",
+      "#5d5d6a"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Hailbloom",
+    "elements": [
+      "frost"
+    ],
+    "species": "Frost flower",
+    "habitat": "alpine meadows",
+    "height": 0.5,
+    "weight": 1.5,
+    "description": "Hailbloom open only during snowstorms, spreading petals rimmed with ice that ring faintly in the wind. Mountain healers collect the meltwater from its cup, which is said to bring down a fever overnight.",
+    "abilities": [
+      "Ice petals",
+      "Cooling dew"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 60,
+      "defense": 80,
+      "speed": 60,
+      "focus": 110
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "plant",
+    "colors": [
+      "#d6ecff",
+      "#5f9e6e"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Oruvane",
+    "elements": [
+      "tide",
+      "glow"
+    ],
+    "species": "Rare sea serpent",
+    "habitat": "open sea",
+    "height": 12.0,
+    "weight": 900.0,
+    "description": "Oruvane is a rare serpent seen only a handful of times a century, its body longer than a ship and lit along its length like a line of lanterns beneath the waves. Old charts mark where it surfaced, and sailors swear the sea there stays calm for years afterwards.",
+    "abilities": [
+      "Calm the deep",
+      "Lantern coil"
+    ],
+    "stats": {
+      "hp": 120,
+      "attack": 115,
+      "defense": 105,
+      "speed": 100,
+      "focus": 125
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "serpent",
+    "colors": [
+      "#1f5e8c",
+      "#bff4ff"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Tectorax",
+    "elements": [
+      "ember",
+      "iron"
+    ],
+    "species": "Rare forge titan",
+    "habitat": "dormant volcanoes",
+    "height": 4.0,
+    "weight": 2400.0,
+    "description": "Tectorax is a rare giant said to sleep inside dormant volcanoes, its hide plated in iron that glows red where the plates meet. When it shifts in its sleep the ground trembles for miles, and hot springs bubble up in villages where there were none.",
+    "abilities": [
+      "Molten plates",
+      "Earthshift"
+    ],
+    "stats": {
+      "hp": 125,
+      "attack": 130,
+      "defense": 125,
+      "speed": 60,
+      "focus": 110
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "quadruped",
+    "colors": [
+      "#5a3a30",
+      "#ff7a3a"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Nyxalune",
+    "elements": [
+      "shade",
+      "frost"
+    ],
+    "species": "Rare aurora owl",
+    "habitat": "polar night sky",
+    "height": 2.2,
+    "weight": 40.0,
+    "description": "Nyxalune is a rare bird of the far north that appears only on the longest winter nights, trailing ribbons of green and violet light across the sky. Those who see it are said to dream for a week of places they have never been.",
+    "abilities": [
+      "Polar veil",
+      "Dream trail"
+    ],
+    "stats": {
+      "hp": 105,
+      "attack": 110,
+      "defense": 95,
+      "speed": 125,
+      "focus": 130
+    },
+    "evolvesFrom": null,
+    "evolvesTo": null,
+    "shape": "bird",
+    "colors": [
+      "#2a1f4f",
+      "#7ff2c9"
+    ]
+  }
+]

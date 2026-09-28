@@ -1,0 +1,81 @@
+{
+  "search": [
+    {
+      "query": "a creature that could guard my house at night",
+      "expect": [
+        41,
+        33
+      ],
+      "why": "Brickhound wakes at unfamiliar footsteps by the door; Tilewhisk patrols rooftops. Neither entry says 'guard'."
+    },
+    {
+      "query": "nocturnal hunters",
+      "expect": [
+        18,
+        17,
+        16
+      ],
+      "why": "Nightquill hunts only by moonlight, Veilwren waits until the sun is gone, Hushling rests all day; no entry uses the word 'nocturnal'."
+    },
+    {
+      "query": "a companion for a winter hike in the mountains",
+      "expect": [
+        2
+      ],
+      "why": "Ashkarra finds walkers caught in blizzards and keeps them warm on mountain passes."
+    },
+    {
+      "query": "which creatures hibernate?",
+      "expect": [
+        15,
+        14
+      ],
+      "why": "Glaciarch sleeps for months under the ice; Hoarsel fattens up before the snow. The word 'hibernate' never appears."
+    },
+    {
+      "query": "a pet that would be safe around my kids",
+      "expect": [
+        34,
+        25
+      ],
+      "why": "Pudloam is patient with children climbing on it; children carry Lumeby to bed like lanterns."
+    },
+    {
+      "query": "something that helps fishermen",
+      "expect": [
+        28,
+        37
+      ],
+      "why": "Shoalsight spots shoals and calls the boats; Rimefin shows ice fishers where larger fish gather."
+    },
+    {
+      "query": "a creature that can imitate people talking",
+      "expect": [
+        31
+      ],
+      "why": "Echolark copies any sound, including a child calling, and fools market traders."
+    },
+    {
+      "query": "something to light the way underground",
+      "expect": [
+        35,
+        22
+      ],
+      "why": "Quartzel's crystals glow in total darkness and guide cave explorers; Cragmaul leads miners to rich seams."
+    }
+  ],
+  "teamBuilder": [
+    {
+      "prompt": "A team of three that can handle a water-heavy opponent, with at least one fast member."
+    },
+    {
+      "prompt": "Four companions for a long expedition across glaciers: one to keep us warm, one to scout from the air, and one heavy hitter."
+    },
+    {
+      "prompt": "Three creatures that are all at their best after dark and hard to catch."
+    },
+    {
+      "prompt": "A balanced team of three that covers each other's weaknesses, with no rare creatures."
+    }
+  ]
+}

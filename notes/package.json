@@ -1,0 +1,32 @@
+{
+  "name": "@leuria-demo/notes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A notes website (a potter's digital garden) with search by meaning, related notes and an assistant, on the visitor's own AI.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@leuria/client": "^0.1.0",
+    "@leuria/react": "^0.1.0",
+    "@leuria/react-connect": "^0.1.0",
+    "@leuria/store": "^0.1.0",
+    "@leuria/web-embed": "^0.1.0",
+    "@sinuxjs/core": "^2.0.4",
+    "@sinuxjs/react": "^2.0.4",
+    "marked": "^18.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "ember",
+    "name": "Ember",
+    "color": "#d9653b",
+    "strongAgainst": [
+      "moss",
+      "frost",
+      "iron"
+    ],
+    "weakAgainst": [
+      "tide",
+      "stone"
+    ]
+  },
+  {
+    "id": "tide",
+    "name": "Tide",
+    "color": "#2f6fd0",
+    "strongAgainst": [
+      "ember",
+      "stone"
+    ],
+    "weakAgainst": [
+      "moss",
+      "spark"
+    ]
+  },
+  {
+    "id": "moss",
+    "name": "Moss",
+    "color": "#4c9a3f",
+    "strongAgainst": [
+      "tide",
+      "stone"
+    ],
+    "weakAgainst": [
+      "ember",
+      "gale",
+      "frost"
+    ]
+  },
+  {
+    "id": "gale",
+    "name": "Gale",
+    "color": "#2fa89a",
+    "strongAgainst": [
+      "moss",
+      "shade"
+    ],
+    "weakAgainst": [
+      "stone",
+      "spark",
+      "frost"
+    ]
+  },
+  {
+    "id": "stone",
+    "name": "Stone",
+    "color": "#a07a4c",
+    "strongAgainst": [
+      "ember",
+      "spark",
+      "gale"
+    ],
+    "weakAgainst": [
+      "tide",
+      "moss",
+      "iron"
+    ]
+  },
+  {
+    "id": "spark",
+    "name": "Spark",
+    "color": "#c99a0e",
+    "strongAgainst": [
+      "tide",
+      "gale",
+      "iron"
+    ],
+    "weakAgainst": [
+      "stone",
+      "shade"
+    ]
+  },
+  {
+    "id": "frost",
+    "name": "Frost",
+    "color": "#4fb3d9",
+    "strongAgainst": [
+      "moss",
+      "gale"
+    ],
+    "weakAgainst": [
+      "ember",
+      "glow",
+      "iron"
+    ]
+  },
+  {
+    "id": "shade",
+    "name": "Shade",
+    "color": "#7a5aa6",
+    "strongAgainst": [
+      "glow",
+      "spark"
+    ],
+    "weakAgainst": [
+      "gale",
+      "glow"
+    ]
+  },
+  {
+    "id": "glow",
+    "name": "Glow",
+    "color": "#d65fa6",
+    "strongAgainst": [
+      "shade",
+      "frost"
+    ],
+    "weakAgainst": [
+      "shade",
+      "iron"
+    ]
+  },
+  {
+    "id": "iron",
+    "name": "Iron",
+    "color": "#7d8a96",
+    "strongAgainst": [
+      "frost",
+      "stone",
+      "glow"
+    ],
+    "weakAgainst": [
+      "ember",
+      "spark"
+    ]
+  }
+]

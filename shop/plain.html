@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Kiln & Co. (plain HTML) · Leuria demo shop</title>
+<link rel="stylesheet" href="/src/shop.css">
+</head>
+<body>
+<!--
+  The same shop without a framework: plain HTML, one module script, and
+  Leuria's Connect UI as web components. Without a bundler, import the
+  standalone file instead:
+    import { … } from "https://cdn.jsdelivr.net/npm/@leuria/connect/dist/standalone.js"
+-->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Kiln <span>&amp;</span> Co.</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#mugs">Mugs</a>
+      <a href="#assistant">Ask us</a>
+      <a href="./">React version</a>
+    </nav>
+    <leuria-connect-button class="topbar-connect"></leuria-connect-button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="kicker">The same shop, in plain HTML</p>
+    <h1>No framework, one script.</h1>
+    <p class="lede">This page uses Leuria's web components and the client SDK directly. Its assistant runs on <em>your</em> AI once you connect it.</p>
+  </section>
+
+  <section id="mugs" class="section">
+    <h2>The mugs</h2>
+    <ul class="products" id="products"></ul>
+  </section>
+
+  <div class="split">
+    <section id="assistant" class="panel assistant">
+      <div class="panel-head">
+        <div><h2>Ask us</h2><p class="panel-sub">About mugs, prices and stock.</p></div>
+        <leuria-ai-status></leuria-ai-status>
+      </div>
+      <div class="thread" id="thread" aria-live="polite"></div>
+      <form class="composer" id="composer">
+        <input id="question" placeholder="Ask about the mugs…" aria-label="Your question">
+        <button class="btn" id="send">Ask</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>Kiln &amp; Co. is a demo. No mug will be shipped.</span>
+  <leuria-badge></leuria-badge>
+</footer>
+
+<script type="module">
+import { bridge, browserAI, createLeuria, defineTool, exposeTools, NoProviderError, setDefaultClient } from "@leuria/connect/standalone";
+
+const products = [
+  { id: "blue", name: "Blue mug", description: "Cobalt glaze, 350 ml. Our best seller for coffee.", price: 12, stock: 42 },
+  { id: "green", name: "Green mug", description: "Celadon glaze, 300 ml. Back in the kiln soon.", price: 9, stock: 0 },
+  { id: "white", name: "Plain white mug", description: "Satin white, 400 ml. Big enough for tea.", price: 7, stock: 130 },
+];
+const $ = (id) => document.getElementById(id);
+const el = (tag, className, text) => Object.assign(document.createElement(tag), { className, textContent: text ?? "" });
+
+$("products").replaceChildren(...products.map((p) => {
+  const li = el("li", "product");
+  const row = el("div", "product-row");
+  row.append(el("h3", "", p.name), el("span", "price", `€${p.price}`));
+  li.append(row, el("p", "product-desc", p.description), el("p", p.stock ? "stock" : "stock stock-out", p.stock ? `${p.stock} in stock` : "Out of stock"));
+  return li;
+}));
+
+// One client for the page; the Leuria elements use it.
+const ai = createLeuria({ providers: [bridge({ app: "Kiln & Co. (plain demo)", needs: { tools: true, effort: "light" } }), browserAI()] });
+setDefaultClient(ai);
+
+const searchProducts = defineTool({
+  name: "search_products",
+  description: "Search the shop's products. Returns id, name, description, price in euros and stock for each match. An empty query returns all products.",
+  inputSchema: { type: "object", properties: { query: { type: "string" } } },
+  annotations: { readOnlyHint: true },
+  execute: ({ query = "" }) => products.filter((p) => `${p.name} ${p.description}`.toLowerCase().includes(String(query).toLowerCase())),
+});
+// The same tool, for the browser's own agents too (WebMCP).
+exposeTools([searchProducts]);
+let convo = newConversation();
+function newConversation() {
+  const c = ai.conversation({
+    system: "You are the assistant of Kiln & Co., a small shop selling stoneware mugs. Use the shop's tools to answer; never guess prices or stock. Answer in one or two short sentences.",
+    tools: [searchProducts],
+  });
+  c.subscribe(renderThread);
+  return c;
+}
+// A fresh history after the visitor disconnects their AI.
+document.querySelector("leuria-connect-button").addEventListener("leuria-disconnect", () => {
+  convo.close();
+  convo = newConversation();
+  renderThread();
+});
+
+function renderThread() {
+  const { messages, status, error, session } = convo.getState();
+  const items = [];
+  for (const m of messages) {
+    if (m.role === "user") items.push(el("div", "bubble bubble-me", m.parts.map((p) => p.text ?? "").join("")));
+    else for (const part of m.parts) {
+      if (part.type === "tool-call") items.push(el("div", "tool-line", "Looked through the shop's mugs"));
+      if (part.type === "text" && part.text.trim()) items.push(el("div", "bubble bubble-ai", part.text));
+    }
+  }
+  const last = messages.at(-1);
+  if (status === "running" && (!last || last.role === "user" || !last.parts.some((p) => p.type === "text" && p.text.trim()))) {
+    items.push(el("div", "bubble bubble-ai bubble-wait", session === "starting" ? "Starting your AI…" : "Thinking…"));
+  }
+  if (status === "error" && error) {
+    items.push(el("p", "thread-error", error instanceof NoProviderError ? "No AI can answer yet. Connect yours at the top of the page." : "The assistant couldn't answer this time. Try again."));
+  }
+  $("thread").replaceChildren(...items);
+  $("thread").scrollTop = $("thread").scrollHeight;
+  $("send").textContent = status === "running" ? "Stop" : "Ask";
+}
+renderThread();
+
+$("composer").addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (convo.getState().status === "running") return convo.stop();
+  const text = $("question").value.trim();
+  if (!text) return;
+  $("question").value = "";
+  convo.send(text);
+});
+</script>
+</body>
+</html>

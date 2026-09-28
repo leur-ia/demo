@@ -1,0 +1,42 @@
+[
+  {
+    "query": "why did my glaze peel off the pot",
+    "expect": ["crawling"],
+    "why": "The note never says 'peel'; it describes glaze pulling back into beads and leaving bare clay."
+  },
+  {
+    "query": "a peaceful start to the day before anyone else is up",
+    "expect": ["journal-3-march", "studio-routine"],
+    "why": "The journal entry talks about first light, the kettle and the quiet, never 'peaceful', 'start' or 'morning'."
+  },
+  {
+    "query": "my pot broke with a loud noise after firing",
+    "expect": ["dunting", "journal-19-april"],
+    "why": "The dunting note describes a bowl that 'split with a ping' while the kiln cooled; no 'broke', 'loud' or 'noise' anywhere."
+  },
+  {
+    "query": "studio safety precautions",
+    "expect": ["looking-after-hands-and-lungs"],
+    "why": "No note contains 'safety' or 'precautions'; the right one is about silica dust, masks and wet cleaning."
+  },
+  {
+    "query": "how much should I charge for a mug",
+    "expect": ["pricing-my-work"],
+    "why": "The word 'charge' appears nowhere; the pricing note talks about materials, time, overheads and losses."
+  },
+  {
+    "query": "a glaze that looks like jade",
+    "expect": ["celadon"],
+    "why": "The celadon note describes a cool grey-blue 'like shallow sea water', never 'jade' or 'green'."
+  },
+  {
+    "query": "why does it dribble when I serve",
+    "expect": ["a-teapot-that-pours-well"],
+    "why": "The teapot note explains the drip, the sharp lip and the spout angle without 'dribble' or 'serve'."
+  },
+  {
+    "query": "a client asks for a bespoke set of tableware",
+    "expect": ["commissions", "pricing-my-work"],
+    "why": "The commissions note speaks of plates made to order, deposits and samples; no 'client', 'bespoke' or 'tableware'."
+  }
+]

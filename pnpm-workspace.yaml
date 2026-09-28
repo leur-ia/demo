@@ -1,0 +1,29 @@
+packages:
+  - shop
+  - notes
+  - dex
+
+onlyBuiltDependencies:
+  - esbuild
+
+# Until the Leuria packages are on npm: use them from the leuria repo next
+# to this one (../leuria). Delete these overrides to use the published ones.
+overrides:
+  '@leuria/client': link:../leuria/packages/client
+  '@leuria/react': link:../leuria/packages/react
+  '@leuria/connect': link:../leuria/packages/connect
+  '@leuria/react-connect': link:../leuria/packages/react-connect
+  '@leuria/store': link:../leuria/packages/store
+  '@leuria/web-embed': link:../leuria/packages/web-embed
+
+# @sinuxjs/core 2.0.4 imports immer at top level without declaring it.
+packageExtensions:
+  '@sinuxjs/core@2':
+    dependencies:
+      immer: ^11.1.18
+
+# @sinuxjs/react 2.0.4 declares react ^18.2; it runs on 19 via useSyncExternalStore.
+peerDependencyRules:
+  allowedVersions:
+    '@sinuxjs/react>react': '19'
+    use-sync-external-store>react: '19'
