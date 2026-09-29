@@ -1,4 +1,4 @@
-import { defineTool } from "@leuria/client";
+import { defineTool, type Message, messageText } from "@leuria/client";
 
 import { creatureById, creatures, elements, searchCreatures } from "./data";
 
@@ -51,6 +51,20 @@ export const guideTools = [
 		execute: () => elements.map(({ id, strongAgainst, weakAgainst }) => ({ id, strongAgainst, weakAgainst })),
 	}),
 ];
+
+/**
+ * For an AI that can't use the tools (this browser's): the page finds the
+ * creatures closest to the request and adds the element matchups.
+ */
+export async function guideForRequest(message: Message): Promise<Record<string, string>> {
+	const found = await searchCreatures(messageText(message), 8)
+		.then((hits) => hits.map((h) => h.creature))
+		.catch(() => creatures);
+	return {
+		"Creatures that may fit (pick only from these ids)": found.map((c) => `${c.id}: ${c.name} (${c.elements.join(", ")}), ${c.species}`).join("\n"),
+		"Element matchups": elements.map((e) => `${e.id}: strong against ${e.strongAgainst.join(", ") || "none"}; weak against ${e.weakAgainst.join(", ") || "none"}`).join("\n"),
+	};
+}
 
 /** For the browser's agents: show a creature's page to the visitor. */
 const openTool = defineTool<{ id: number }>({

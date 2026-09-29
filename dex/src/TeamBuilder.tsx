@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ElementChip } from "./Chips";
 import { creatureById, teamExamples } from "./data";
 import { Portrait } from "./Portrait";
-import { guideTools } from "./tools";
+import { guideForRequest, guideTools } from "./tools";
 
 interface Team {
 	team: Array<{ id: number; role: string; why: string }>;
@@ -46,6 +46,8 @@ export function TeamBuilder() {
 					"You build teams from the Hollowmark field guide. Use the tools to find creatures and check matchups; only pick creatures that exist in the guide. Give each member a short role and a one-sentence reason, and a two-sentence summary.",
 				prompt,
 				tools: guideTools,
+				// This browser's AI can't look things up itself: the page finds the likely creatures for it.
+				withoutTools: guideForRequest,
 				schema: teamSchema,
 				validate: (value) => {
 					const t = value as Team;

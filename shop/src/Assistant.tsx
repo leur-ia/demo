@@ -3,7 +3,7 @@ import { AIStatus } from "@leuria/react-connect";
 import { useConversation } from "@leuria/react";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 
-import { searchProducts, toolWords } from "./products";
+import { searchProducts, shelf, toolWords } from "./products";
 
 const SUGGESTIONS = ["Which mug is cheapest?", "Is the green mug in stock?", "What would you pick for tea?"];
 
@@ -13,6 +13,8 @@ export function Assistant() {
 		system:
 			"You are the assistant of Kiln & Co., a small shop selling stoneware mugs. Use the shop's tools to answer; never guess prices or stock. Answer in one or two short sentences.",
 		tools: [searchProducts],
+		// This browser's AI can't look through the shop itself: it gets the whole shelf (three mugs).
+		withoutTools: shelf,
 	});
 	const [draft, setDraft] = useState("");
 	const thread = useRef<HTMLDivElement>(null);

@@ -28,6 +28,15 @@ export const searchProducts = defineTool<{ query?: string }>({
 			.map(({ glaze: _glaze, ...product }) => product),
 });
 
+/** For an AI that can't use the tools (this browser's): the whole shelf, with the question. */
+export function shelf(): Record<string, string> {
+	return {
+		"The shop's mugs (answer only from these)": products
+			.map((p) => `${p.name}: ${p.price} €, ${p.stock > 0 ? `${p.stock} in stock` : "out of stock"}. ${p.description}`)
+			.join("\n"),
+	};
+}
+
 /** What each tool call looks like to a shopper. */
 export const toolWords: Record<string, string> = {
 	search_products: "Looked through the shop's mugs",

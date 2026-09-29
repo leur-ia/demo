@@ -2,7 +2,7 @@ import { type Message, NoProviderError } from "@leuria/client";
 import { useConversation } from "@leuria/react";
 import { type FormEvent, Fragment, type ReactNode, useEffect, useRef, useState } from "react";
 
-import { assistantTools } from "./tools";
+import { assistantTools, notesForQuestion } from "./tools";
 import { noteBySlug, slugForTitle } from "./vault";
 
 const TOOL_WORDS: Record<string, string> = { search_notes: "Searched the notes", list_notes: "Looked at the list of notes", read_note: "Read a note" };
@@ -13,6 +13,8 @@ export function Assistant({ current }: { current: string }) {
 		system:
 			"You are the guide to Maren's notebook, the notes of a potter. Answer only from the notes: search them first, read the ones you need, and never invent facts. Cite every note you use as [[Exact title]]. Answer in two to four sentences.",
 		tools: assistantTools,
+		// This browser's AI can't search the notes itself: the page does, and hands over the closest ones.
+		withoutTools: notesForQuestion,
 	});
 	const [draft, setDraft] = useState("");
 	const thread = useRef<HTMLDivElement>(null);
