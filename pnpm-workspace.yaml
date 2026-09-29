@@ -2,6 +2,7 @@ packages:
   - shop
   - notes
   - dex
+  - bike
 
 onlyBuiltDependencies:
   - esbuild

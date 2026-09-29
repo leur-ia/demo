@@ -1,0 +1,19 @@
+{
+  "skills": [
+    {
+      "name": "diagnose-a-noise",
+      "description": "Find where a bike noise comes from (clicks, creaks, squeals, rubbing, grinding) with the workshop's questions, then say what the rider can check and which service fixes it.",
+      "files": ["SKILL.md"]
+    },
+    {
+      "name": "book-a-repair",
+      "description": "Book a repair at the workshop, from choosing the service to proposing a slot that the rider confirms on the page.",
+      "files": ["SKILL.md"]
+    },
+    {
+      "name": "warranty",
+      "description": "Check whether a problem with a bike bought at Rayon Cycles is covered by our warranty, from the order number.",
+      "files": ["SKILL.md", "policy.md"]
+    }
+  ]
+}

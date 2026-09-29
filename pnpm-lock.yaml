@@ -18,6 +18,46 @@ importers:
 
   .: {}
 
+  bike:
+    dependencies:
+      '@leuria/client':
+        specifier: link:../../leuria/packages/client
+        version: link:../../leuria/packages/client
+      '@leuria/react':
+        specifier: link:../../leuria/packages/react
+        version: link:../../leuria/packages/react
+      '@leuria/react-connect':
+        specifier: link:../../leuria/packages/react-connect
+        version: link:../../leuria/packages/react-connect
+      '@sinuxjs/core':
+        specifier: ^2.0.4
+        version: 2.0.4
+      '@sinuxjs/react':
+        specifier: ^2.0.4
+        version: 2.0.4(@sinuxjs/core@2.0.4)(react@19.3.0)
+      react:
+        specifier: ^19.2.0
+        version: 19.3.0
+      react-dom:
+        specifier: ^19.2.0
+        version: 19.3.0(react@19.3.0)
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.0
+        version: 19.3.0
+      '@types/react-dom':
+        specifier: ^19.2.0
+        version: 19.3.0(@types/react@19.3.0)
+      '@vitejs/plugin-react':
+        specifier: ^6.1.0
+        version: 6.1.1(vite@8.3.1)
+      typescript:
+        specifier: ^5.9.0
+        version: 5.9.3
+      vite:
+        specifier: ^8.3.0
+        version: 8.3.1
+
   dex:
     dependencies:
       '@leuria/client':

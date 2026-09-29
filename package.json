@@ -11,6 +11,7 @@
     "shop": "pnpm --filter @leuria-demo/shop dev",
     "notes": "pnpm --filter @leuria-demo/notes dev",
     "dex": "pnpm --filter @leuria-demo/dex dev",
+    "bike": "pnpm --filter @leuria-demo/bike dev",
     "build": "node scripts/build-showroom.mjs",
     "serve": "node scripts/serve-static.mjs",
     "check": "pnpm -r check"

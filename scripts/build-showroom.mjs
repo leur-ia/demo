@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Builds every demo into one static site, dist/, ready for any
-// static host:  /  the showroom · /shop/ (and /shop/plain.html) · /notes/ · /dex/
+// static host:  /  the showroom · /shop/ (and /shop/plain.html) · /notes/ · /dex/ · /bike/
 import { execFileSync } from "node:child_process";
 import { copyFileSync, mkdirSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -12,6 +12,7 @@ const demos = [
 	{ dir: "shop", path: "shop" },
 	{ dir: "notes", path: "notes" },
 	{ dir: "dex", path: "dex" },
+	{ dir: "bike", path: "bike" },
 ];
 
 rmSync(out, { recursive: true, force: true });
