@@ -8,7 +8,7 @@ export const siteRoot = location.pathname.replace(/[^/]*$/, "");
  * `.well-known/agent-skills` on this site, and one shared by bike sites,
  * from GitHub, pinned to a commit.
  */
-export const SHARED_SKILL = "leur-ia/demo@abc-quick-check";
+export const SHARED_SKILL = "leur-ia/demo@abc-quick-check#8ad0704615c42416e4840cffcd8da8cb24fa890e";
 
 // The visitor's own AI first, with the workshop's skills; then the browser's model.
 export const ai = createLeuria({

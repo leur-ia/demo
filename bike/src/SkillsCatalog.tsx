@@ -30,7 +30,7 @@ export function SkillsCatalog() {
 		loadSkills().then(setSkills, () => setFailed(true));
 	}, []);
 
-	const [repo, name] = SHARED_SKILL.split("@");
+	const [, repo, name, pin] = SHARED_SKILL.match(/^([^@]+)@([^#]+)#(.+)$/) ?? [];
 	return (
 		<section id="skills" className="section">
 			<h2>What we teach your AI</h2>
@@ -61,7 +61,7 @@ export function SkillsCatalog() {
 						<span className="tag tag-shared">Shared</span>
 					</div>
 					<p>The ABC pre-ride check, a skill any bike site can use. It lives in a public repository and is pinned to one version.</p>
-					<a className="skill-link" href={`https://github.com/${repo}/tree/main/skills/${name}`} target="_blank" rel="noreferrer">
+					<a className="skill-link" href={`https://github.com/${repo}/tree/${pin}/skills/${name}`} target="_blank" rel="noreferrer">
 						{repo} on GitHub
 					</a>
 				</li>
