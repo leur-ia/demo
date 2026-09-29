@@ -3,6 +3,8 @@ import { ConnectButton, LeuriaBadge } from "@leuria/react-connect";
 import { useStore } from "@sinuxjs/react";
 import { useEffect } from "react";
 
+import { SHOWROOM_URL } from "../../shared/showroom";
+
 import { dexStore } from "./app.store";
 import { ElementChip } from "./Chips";
 import { creatureById, creatures, elements, number, searchExamples } from "./data";
@@ -22,6 +24,9 @@ export function App() {
 		<>
 			<header className="top">
 				<div className="top-inner">
+					<a className="demo-back" href={SHOWROOM_URL}>
+						← All demos
+					</a>
 					<a href="#/" className="brand">
 						<span className="brand-mark" aria-hidden>
 							◐

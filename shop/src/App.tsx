@@ -2,6 +2,8 @@ import { useExposedTools } from "@leuria/react";
 import { ConnectButton, LeuriaBadge } from "@leuria/react-connect";
 import { useState } from "react";
 
+import { SHOWROOM_URL } from "../../shared/showroom";
+
 import { Assistant } from "./Assistant";
 import { Mug } from "./Mug";
 import { products } from "./products";
@@ -18,6 +20,9 @@ export function App() {
 		<>
 			<header className="topbar">
 				<div className="topbar-inner">
+					<a className="demo-back" href={SHOWROOM_URL}>
+						← All demos
+					</a>
 					<a className="brand" href="#top">
 						Kiln <span>&amp;</span> Co.
 					</a>

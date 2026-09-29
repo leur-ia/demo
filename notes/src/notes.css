@@ -132,3 +132,7 @@ kbd { font: 12px var(--sans); color: var(--muted); border: 1px solid var(--line)
 	.sidebar { border-right: 0; max-height: none; }
 	.page-bar, .note { padding-left: 16px; padding-right: 16px; }
 }
+
+/* Back to the showroom: above the notebook's name, quieter than the notes. */
+.demo-back { display: block; margin-bottom: 8px; font-size: 12px; color: var(--muted); text-decoration: none; }
+.demo-back:hover { color: var(--text); }
