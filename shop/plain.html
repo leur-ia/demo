@@ -63,7 +63,7 @@
 </footer>
 
 <script type="module">
-import { bridge, browserAI, createLeuria, defineTool, exposeTools, NoProviderError, setDefaultClient } from "@leuria/connect/standalone";
+import { createAI, defineTool, exposeTools, leuria, NoProviderError, promptAPI, setDefaultClient } from "@leuria/connect/standalone";
 
 const products = [
   { id: "blue", name: "Blue mug", description: "Cobalt glaze, 350 ml. Our best seller for coffee.", price: 12, stock: 42 },
@@ -82,7 +82,7 @@ $("products").replaceChildren(...products.map((p) => {
 }));
 
 // One client for the page; the Leuria elements use it.
-const ai = createLeuria({ providers: [bridge({ app: "Kiln & Co. (plain demo)", needs: { tools: true, effort: "light" } }), browserAI()] });
+const ai = createAI({ providers: [leuria({ app: "Kiln & Co. (plain demo)", needs: { tools: true, effort: "light" } }), promptAPI()] });
 setDefaultClient(ai);
 
 const searchProducts = defineTool({

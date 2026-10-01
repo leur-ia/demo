@@ -1,6 +1,6 @@
-import { bridge, browserAI, createLeuria } from "@leuria/client";
+import { createAI, leuria, promptAPI } from "@leuria/client";
 import { pageEmbedder } from "@leuria/web-embed";
 
-export const ai = createLeuria({
-	providers: [bridge({ app: "Hollowmark field guide (demo)", needs: { tools: true, effort: "standard" } }), browserAI(), pageEmbedder()],
+export const ai = createAI({
+	providers: [leuria({ app: "Hollowmark field guide (demo)", needs: { tools: true, effort: "standard" } }), promptAPI(), pageEmbedder()],
 });
