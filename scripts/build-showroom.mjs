@@ -26,6 +26,7 @@ for (const { dir, path } of demos) {
 
 mkdirSync(join(out, "fonts"), { recursive: true });
 copyFileSync(join(here, "../showroom/index.html"), join(out, "index.html"));
+copyFileSync(join(here, "../shared/consent.js"), join(out, "consent.js"));
 copyFileSync(join(here, "../../leuria/packages/pearl/src/tokens.css"), join(out, "tokens.css"));
 copyFileSync(join(here, "../../leuria/packages/connect/fonts/plus-jakarta-sans-latin-wght-normal.woff2"), join(out, "fonts/plus-jakarta-sans-latin-wght-normal.woff2"));
 // The Leuria mark, for every demo: they all live under one origin.

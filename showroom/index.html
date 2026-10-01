@@ -43,7 +43,10 @@ a { color: inherit; }
 footer { padding: 24px 0 40px; font-size: 13px; color: var(--text-muted); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 @media (max-width: 640px) { .hero { padding: 40px 24px; } .wrap { padding: 0 16px; } }
+  .consent-link { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
 </style>
+  <!-- Visit counting on demo.leuria.dev, after the visitor's yes (shared/consent.js). -->
+  <script src="/consent.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -89,7 +92,7 @@ footer { padding: 24px 0 40px; font-size: 13px; color: var(--text-muted); }
     <div><h3>The site can't see your files</h3><p>A site only talks to your AI through tools its own page provides.</p></div>
     <div><h3>Search stays on your device</h3><p>The notes and the guide are indexed in your browser, with your own model or a small one in the page.</p></div>
   </section>
-  <footer>These demos are examples: no mug will be shipped, no bike repaired.</footer>
+  <footer>These demos are examples: no mug will be shipped, no bike repaired. · <button type="button" class="consent-link" data-consent-open>Visit counting</button></footer>
 </div>
 </body>
 </html>
