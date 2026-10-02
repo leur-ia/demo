@@ -8,18 +8,13 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, "../dist");
-const demos = [
-	{ dir: "shop", path: "shop" },
-	{ dir: "notes", path: "notes" },
-	{ dir: "dex", path: "dex" },
-	{ dir: "bike", path: "bike" },
-];
+const demos = ["shop", "notes", "dex", "bike"];
 
 rmSync(out, { recursive: true, force: true });
-for (const { dir, path } of demos) {
-	console.log(`Building ${path}…`);
-	execFileSync("pnpm", ["exec", "vite", "build", "--base", `./`, "--outDir", join(out, path), "--emptyOutDir"], {
-		cwd: join(here, "..", dir),
+for (const demo of demos) {
+	console.log(`Building ${demo}…`);
+	execFileSync("pnpm", ["exec", "vite", "build", "--base", `./`, "--outDir", join(out, demo), "--emptyOutDir"], {
+		cwd: join(here, "..", demo),
 		stdio: ["ignore", "ignore", "inherit"],
 	});
 }

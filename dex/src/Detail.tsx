@@ -1,10 +1,11 @@
 import { useStore } from "@sinuxjs/react";
 import { useEffect } from "react";
 
+import { useIndexState } from "../../shared/search";
+
 import { dexStore } from "./app.store";
 import { ElementChip } from "./Chips";
-import { chain, type Creature, number, strengths, weaknesses } from "./data";
-import { useIndexState } from "./hooks";
+import { chain, type Creature, index, matchups, number } from "./data";
 import { Portrait } from "./Portrait";
 
 const STATS: Array<[keyof Creature["stats"], string]> = [
@@ -17,7 +18,7 @@ const STATS: Array<[keyof Creature["stats"], string]> = [
 
 export function Detail({ creature }: { creature: Creature }) {
 	const similar = useStore(dexStore, (s) => s.similar);
-	const indexStatus = useIndexState().status;
+	const indexStatus = useIndexState(index).status;
 	const line = chain(creature);
 
 	useEffect(() => {
@@ -81,13 +82,13 @@ export function Detail({ creature }: { creature: Creature }) {
 					<h2>Matchups</h2>
 					<p className="label">Strong against</p>
 					<div className="chips">
-						{strengths(creature).map((e) => (
+						{matchups(creature, "strongAgainst").map((e) => (
 							<ElementChip key={e.id} id={e.id} />
 						))}
 					</div>
 					<p className="label">Weak against</p>
 					<div className="chips">
-						{weaknesses(creature).map((e) => (
+						{matchups(creature, "weakAgainst").map((e) => (
 							<ElementChip key={e.id} id={e.id} />
 						))}
 					</div>

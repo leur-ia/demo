@@ -1,15 +1,15 @@
-import { useExposedTools, useLeuria, useLeuriaState } from "@leuria/react";
+import { useExposedTools, useLeuria, useProvider } from "@leuria/react";
 import { ConnectButton, LeuriaBadge } from "@leuria/react-connect";
 import { useStore } from "@sinuxjs/react";
 import { useEffect } from "react";
 
+import { smallModelSize, useIndexState } from "../../shared/search";
 import { SHOWROOM_URL } from "../../shared/showroom";
 
 import { dexStore } from "./app.store";
 import { ElementChip } from "./Chips";
-import { creatureById, creatures, elements, number, searchExamples } from "./data";
+import { creatureById, creatures, elements, index as creatureIndex, number, searchExamples } from "./data";
 import { Detail } from "./Detail";
-import { useIndexState } from "./hooks";
 import { Portrait } from "./Portrait";
 import { TeamBuilder } from "./TeamBuilder";
 import { pageTools } from "./tools";
@@ -51,7 +51,7 @@ export function App() {
 
 function Grid() {
 	const { element, query, hits, words, searching } = useStore(dexStore);
-	const index = useIndexState();
+	const index = useIndexState(creatureIndex);
 
 	useEffect(() => {
 		const timer = setTimeout(() => void dexStore.runSearch(), 250);
@@ -60,7 +60,7 @@ function Grid() {
 
 	const searchingByMeaning = query.trim() !== "" && index.status === "ready";
 	const shown = searchingByMeaning
-		? hits.map((h) => h.creature)
+		? hits
 		: query.trim()
 			? words
 			: creatures.filter((c) => !element || c.elements.includes(element));
@@ -127,8 +127,8 @@ function Grid() {
 /** Search by meaning: on (with which model), getting ready, or how to turn it on. */
 function SearchStatus() {
 	const ai = useLeuria();
-	const index = useIndexState();
-	const page = useLeuriaState((s) => s.providers.find((p) => p.id === "page-embed"));
+	const index = useIndexState(creatureIndex);
+	const page = useProvider("page-embed");
 	if (index.status === "ready") {
 		return <p className="status">Search by meaning is on · {index.model?.id === "bridge" ? "your AI, on this computer" : "a small model in this page"}</p>;
 	}
@@ -140,7 +140,7 @@ function SearchStatus() {
 			<button type="button" className="link" onClick={() => void ai.connect("page-embed").catch(() => undefined)}>
 				use a small model in this page
 			</button>{" "}
-			({page?.detail?.match(/\(([^)]+)\)/)?.[1] ?? "about 40 MB"}, kept in your browser).
+			({smallModelSize(page)}, kept in your browser).
 		</p>
 	);
 }

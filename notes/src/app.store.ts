@@ -1,5 +1,7 @@
 import { createStore } from "@sinuxjs/core";
 
+import { latestSearch } from "../../shared/search";
+
 import { keywordNotes, type Note, type NoteHit, notes, noteBySlug, relatedNotes, searchNotes } from "./vault";
 
 export interface AppState {
@@ -23,8 +25,7 @@ function slugFromHash(): string {
 	return noteBySlug.has(slug) ? slug : HOME;
 }
 
-/** Only the latest search may land. */
-let searchToken = 0;
+const search = latestSearch(searchNotes);
 
 export const appStore = createStore(
 	{
@@ -56,15 +57,9 @@ export const appStore = createStore(
 		closeSearch: () => ({ searchOpen: false }),
 		setQuery: (_state: AppState, query: string) => ({ query, words: keywordNotes(query), searching: Boolean(query.trim()), searchError: "" }),
 		runSearch: async (state: AppState): Promise<Partial<AppState>> => {
-			const token = ++searchToken;
-			const query = state.query.trim();
-			if (!query) return { hits: [], searching: false };
-			try {
-				const hits = await searchNotes(query);
-				return token === searchToken ? { hits, searching: false } : {};
-			} catch {
-				return token === searchToken ? { hits: [], searching: false, searchError: "Search by meaning isn't ready yet." } : {};
-			}
+			const result = await search(state.query);
+			if (!result) return {};
+			return { hits: result.hits, searching: false, ...(result.failed && { searchError: "Search by meaning isn't ready yet." }) };
 		},
 	},
 );

@@ -1,7 +1,23 @@
 import { createStore } from "@sinuxjs/core";
 
+import { products } from "./products";
+
 export const ORDER_FIELDS = ["name", "phone", "product", "quantity", "address"] as const;
 export type OrderField = (typeof ORDER_FIELDS)[number];
+
+/** An order as the AI gives it: by the order form's tool, or read from a message. */
+export type Order = { name?: string; phone?: string; address?: string; product?: string; quantity?: number };
+
+export const orderSchema = {
+	type: "object",
+	properties: {
+		name: { type: "string" },
+		phone: { type: "string" },
+		address: { type: "string" },
+		product: { type: "string", enum: products.map((p) => p.id) },
+		quantity: { type: "integer", minimum: 1 },
+	},
+};
 
 export interface OrderState {
 	message: string;
@@ -25,7 +41,7 @@ export const orderStore = createStore(
 			fields: { ...state.fields, [field]: value },
 			filled: state.filled.filter((f) => f !== field),
 		}),
-		fill: (_state: OrderState, order: Partial<Record<OrderField, string | number>>) => {
+		fill: (_state: OrderState, order: Order) => {
 			const fields = { ...empty };
 			for (const key of ORDER_FIELDS) fields[key] = order[key] === undefined ? "" : String(order[key]);
 			return { fields, filled: ORDER_FIELDS.filter((key) => fields[key] !== "") };

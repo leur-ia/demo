@@ -153,6 +153,25 @@ importers:
         specifier: ^8.3.0
         version: 8.3.1
 
+  shared:
+    dependencies:
+      '@leuria/client':
+        specifier: link:../../leuria/packages/client
+        version: link:../../leuria/packages/client
+      '@leuria/react':
+        specifier: link:../../leuria/packages/react
+        version: link:../../leuria/packages/react
+      '@leuria/react-connect':
+        specifier: link:../../leuria/packages/react-connect
+        version: link:../../leuria/packages/react-connect
+      react:
+        specifier: ^19.2.0
+        version: 19.3.0
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.0
+        version: 19.3.0
+
   shop:
     dependencies:
       '@leuria/client':

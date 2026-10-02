@@ -13,7 +13,7 @@
     "dex": "pnpm --filter @leuria-demo/dex dev",
     "bike": "pnpm --filter @leuria-demo/bike dev",
     "build": "node scripts/build-showroom.mjs",
-    "serve": "node scripts/serve-static.mjs",
+    "serve": "pnpm --filter @leuria-demo/shop exec vite preview --outDir ../dist --port 4173",
     "check": "pnpm -r check"
   }
 }

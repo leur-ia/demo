@@ -3,22 +3,22 @@ import { AIStatus, ConnectButton, LeuriaBadge } from "@leuria/react-connect";
 import { useStore } from "@sinuxjs/react";
 import { useEffect, useMemo } from "react";
 
+import { useIndexState } from "../../shared/search";
 import { SHOWROOM_URL } from "../../shared/showroom";
 
 import { appStore } from "./app.store";
 import { Assistant } from "./Assistant";
-import { useIndexState } from "./hooks";
 import { IndexCard } from "./IndexCard";
 import { renderNote } from "./markdown";
 import { SearchPalette } from "./SearchPalette";
 import { pageTools } from "./tools";
-import { backlinks, noteBySlug, notes } from "./vault";
+import { backlinks, index, noteBySlug, notes } from "./vault";
 
 const TAG_ORDER = ["journal", "clay", "making", "glaze", "firing", "kiln", "failure", "tea", "studio", "market"];
 
 export function App() {
 	const { slug, panel, related } = useStore(appStore, (s) => ({ slug: s.slug, panel: s.panel, related: s.related }));
-	const indexStatus = useIndexState().status;
+	const indexStatus = useIndexState(index).status;
 	const note = noteBySlug.get(slug);
 	const html = useMemo(() => (note ? renderNote(note.body) : ""), [note]);
 	const linkedFrom = useMemo(() => backlinks(slug), [slug]);

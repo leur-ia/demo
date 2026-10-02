@@ -1,15 +1,16 @@
-import { useLeuria, useLeuriaState } from "@leuria/react";
+import { useLeuria, useProvider } from "@leuria/react";
 
-import { modelName, useIndexState } from "./hooks";
+import { smallModelSize, useIndexState } from "../../shared/search";
+
+import { modelName } from "./hooks";
 import { index } from "./vault";
 
 /** How search by meaning stands: which model reads the notes, and where it runs. */
 export function IndexCard() {
 	const ai = useLeuria();
-	const state = useIndexState();
-	const { providers } = useLeuriaState();
-	const page = providers.find((p) => p.id === "page-embed");
-	const bridge = providers.find((p) => p.id === "bridge");
+	const state = useIndexState(index);
+	const page = useProvider("page-embed");
+	const bridge = useProvider("bridge");
 
 	if (state.status === "ready" || state.status === "indexing") {
 		const where = state.model?.id === "bridge" ? "your AI, on this computer" : "a small model in this page";
@@ -66,7 +67,7 @@ export function IndexCard() {
 			)}
 			{page?.status === "needs-action" && (
 				<button type="button" className="btn btn-quiet" onClick={() => void ai.connect("page-embed").catch(() => undefined)}>
-					Use a small model ({page?.detail?.match(/\(([^)]+)\)/)?.[1] ?? "about 40 MB"})
+					Use a small model ({smallModelSize(page)})
 				</button>
 			)}
 		</div>

@@ -1,0 +1,17 @@
+{
+  "name": "@leuria-demo/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pieces the demos share, imported by relative path. A package only so its imports resolve.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "dependencies": {
+    "@leuria/client": "^0.1.0",
+    "@leuria/react": "^0.1.0",
+    "@leuria/react-connect": "^0.1.0",
+    "react": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0"
+  }
+}

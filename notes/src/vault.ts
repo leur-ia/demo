@@ -1,5 +1,7 @@
 import { chunkMarkdown, createIndex, type IndexDocument } from "@leuria/store";
 
+import { keywordFilter } from "../../shared/search";
+
 import { ai } from "./ai";
 
 export interface Note {
@@ -14,8 +16,6 @@ export interface Note {
 
 export interface ChunkMeta {
 	slug: string;
-	title: string;
-	heading?: string;
 }
 
 const files = import.meta.glob<string>("../vault/*.md", { query: "?raw", import: "default", eager: true });
@@ -71,7 +71,7 @@ const documents: IndexDocument<ChunkMeta>[] = notes.flatMap((note) =>
 	chunkMarkdown(plain(note.body), { maxChars: 2000 }).map((chunk, i) => ({
 		id: `${note.slug}#${i}`,
 		text: `${note.title}\n\n${chunk.text}`,
-		meta: { slug: note.slug, title: note.title, heading: chunk.heading },
+		meta: { slug: note.slug },
 	})),
 );
 
@@ -111,13 +111,5 @@ export async function relatedNotes(slug: string, limit = 5): Promise<NoteHit[]> 
 
 /** Plain word matching, to compare with search by meaning. */
 export function keywordNotes(query: string): Note[] {
-	const words = query
-		.toLowerCase()
-		.split(/\W+/)
-		.filter((w) => w.length > 3);
-	if (words.length === 0) return [];
-	return notes.filter((n) => {
-		const text = `${n.title} ${n.body}`.toLowerCase();
-		return words.every((w) => text.includes(w));
-	});
+	return keywordFilter(notes, (n) => `${n.title} ${n.body}`, query);
 }

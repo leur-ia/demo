@@ -3,6 +3,8 @@ import { createIndex } from "@leuria/store";
 import creaturesJson from "../data/creatures.json";
 import elementsJson from "../data/elements.json";
 import queriesJson from "../data/_queries.json";
+import { keywordFilter } from "../../shared/search";
+
 import { ai } from "./ai";
 
 export interface Element {
@@ -48,14 +50,9 @@ export function chain(creature: Creature): Creature[] {
 	return line;
 }
 
-/** Elements this creature is weak to: any of its elements' weaknesses. */
-export function weaknesses(creature: Creature): Element[] {
-	const ids = new Set(creature.elements.flatMap((e) => elementById.get(e)?.weakAgainst ?? []));
-	return [...ids].map((id) => elementById.get(id)!).filter(Boolean);
-}
-
-export function strengths(creature: Creature): Element[] {
-	const ids = new Set(creature.elements.flatMap((e) => elementById.get(e)?.strongAgainst ?? []));
+/** Elements this creature is strong or weak against: any of its elements' matchups. */
+export function matchups(creature: Creature, side: "strongAgainst" | "weakAgainst"): Element[] {
+	const ids = new Set(creature.elements.flatMap((e) => elementById.get(e)?.[side] ?? []));
 	return [...ids].map((id) => elementById.get(id)!).filter(Boolean);
 }
 
@@ -70,9 +67,9 @@ export const index = createIndex<{ id: number }>(ai, {
 	documents: creatures.map((c) => ({ id: String(c.id), text: describe(c), meta: { id: c.id } })),
 });
 
-export async function searchCreatures(query: string, k = 8): Promise<Array<{ creature: Creature; score: number }>> {
+export async function searchCreatures(query: string, k = 8): Promise<Creature[]> {
 	const hits = await index.search(query, { k });
-	return hits.map((h) => ({ creature: creatureById.get(h.meta!.id)!, score: h.score }));
+	return hits.map((h) => creatureById.get(h.meta!.id)!);
 }
 
 export async function similarCreatures(id: number, k = 4): Promise<Creature[]> {
@@ -82,10 +79,5 @@ export async function similarCreatures(id: number, k = 4): Promise<Creature[]> {
 
 /** Plain word matching, to compare. */
 export function keywordCreatures(query: string): Creature[] {
-	const words = query
-		.toLowerCase()
-		.split(/\W+/)
-		.filter((w) => w.length > 3);
-	if (!words.length) return [];
-	return creatures.filter((c) => words.every((w) => describe(c).toLowerCase().includes(w)));
+	return keywordFilter(creatures, describe, query);
 }

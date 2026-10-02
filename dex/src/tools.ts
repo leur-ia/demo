@@ -11,7 +11,7 @@ export const guideTools = [
 		annotations: { readOnlyHint: true },
 		execute: async ({ query }) => {
 			try {
-				return (await searchCreatures(query, 6)).map(({ creature: c }) => ({ id: c.id, name: c.name, elements: c.elements, species: c.species }));
+				return (await searchCreatures(query, 6)).map((c) => ({ id: c.id, name: c.name, elements: c.elements, species: c.species }));
 			} catch {
 				return { error: "Search by meaning is off; use list_creatures." };
 			}
@@ -57,9 +57,7 @@ export const guideTools = [
  * creatures closest to the request and adds the element matchups.
  */
 export async function guideForRequest(message: Message): Promise<Record<string, string>> {
-	const found = await searchCreatures(messageText(message), 8)
-		.then((hits) => hits.map((h) => h.creature))
-		.catch(() => creatures);
+	const found = await searchCreatures(messageText(message), 8).catch(() => creatures);
 	return {
 		"Creatures that may fit (pick only from these ids)": found.map((c) => `${c.id}: ${c.name} (${c.elements.join(", ")}), ${c.species}`).join("\n"),
 		"Element matchups": elements.map((e) => `${e.id}: strong against ${e.strongAgainst.join(", ") || "none"}; weak against ${e.weakAgainst.join(", ") || "none"}`).join("\n"),

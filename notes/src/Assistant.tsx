@@ -1,4 +1,4 @@
-import { type Message, NoProviderError } from "@leuria/client";
+import { type Message, messageText, NoProviderError } from "@leuria/client";
 import { useConversation } from "@leuria/react";
 import { type FormEvent, Fragment, type ReactNode, useEffect, useRef, useState } from "react";
 
@@ -64,7 +64,7 @@ export function Assistant({ current }: { current: string }) {
 
 function Bubble({ message }: { message: Message }) {
 	if (message.role === "user") {
-		return <div className="bubble me">{message.parts.map((p) => (p.type === "text" ? p.text : "")).join("")}</div>;
+		return <div className="bubble me">{messageText(message)}</div>;
 	}
 	const tools = [...new Set(message.parts.filter((p) => p.type === "tool-call").map((p) => TOOL_WORDS[p.name] ?? "Checked the notes"))];
 	return (

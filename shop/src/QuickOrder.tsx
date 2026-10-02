@@ -2,22 +2,8 @@ import { NoProviderError } from "@leuria/client";
 import { useChat } from "@leuria/react";
 import { useStore } from "@sinuxjs/react";
 
-import { ORDER_FIELDS, type OrderField, orderStore } from "./order.store";
+import { ORDER_FIELDS, type Order, type OrderField, orderSchema, orderStore } from "./order.store";
 import { products } from "./products";
-
-const orderSchema = {
-	type: "object",
-	properties: {
-		name: { type: "string" },
-		phone: { type: "string" },
-		address: { type: "string" },
-		product: { type: "string", enum: products.map((p) => p.id) },
-		quantity: { type: "integer", minimum: 1 },
-	},
-	required: ["name", "product", "quantity"],
-};
-
-type Order = Partial<Record<OrderField, string | number>>;
 
 const LABELS: Record<OrderField, string> = { name: "Name", phone: "Phone", product: "Mug", quantity: "Quantity", address: "Address" };
 
@@ -32,7 +18,7 @@ export function QuickOrder() {
 			const order = await start<Order>({
 				system: "Extract the order from the customer's message. Leave a field out when it is not given.",
 				prompt: message,
-				schema: orderSchema,
+				schema: { ...orderSchema, required: ["name", "product", "quantity"] },
 				validate: (value) => {
 					const order = value as Order;
 					if (!products.some((p) => p.id === order.product)) throw new Error(`product must be one of ${products.map((p) => p.id)}`);

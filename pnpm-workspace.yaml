@@ -3,6 +3,7 @@ packages:
   - notes
   - dex
   - bike
+  - shared
 
 onlyBuiltDependencies:
   - esbuild

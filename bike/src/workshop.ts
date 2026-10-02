@@ -36,7 +36,8 @@ export function freeSlots(from = new Date()): Slot[] {
 	while (slots.length < 40) {
 		const weekday = day.getDay();
 		if (weekday !== 0 && weekday !== 6) {
-			const date = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, "0")}-${String(day.getDate()).padStart(2, "0")}`;
+			// Swedish dates read YYYY-MM-DD.
+			const date = day.toLocaleDateString("sv-SE");
 			for (const time of TIMES) {
 				const at = `${date}T${time}`;
 				// A made-up calendar: roughly half the slots are taken.

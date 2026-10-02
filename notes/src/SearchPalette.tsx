@@ -1,15 +1,16 @@
 import { useStore } from "@sinuxjs/react";
 import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 
+import { useIndexState } from "../../shared/search";
+
 import { appStore } from "./app.store";
-import { useIndexState } from "./hooks";
-import { queries } from "./vault";
+import { index, queries } from "./vault";
 
 /** ⌘K: search by meaning, with what words alone would find beside it. */
 export function SearchPalette() {
 	const { searchOpen: open, query, hits, words, searching: busy, searchError: error } = useStore(appStore);
-	const status = useIndexState().status;
-	const input = useRef<HTMLInputElement>(null);
+	const status = useIndexState(index).status;
+	const dialog = useRef<HTMLDialogElement>(null);
 	const [cursor, setCursor] = useState(0);
 
 	useEffect(() => {
@@ -23,8 +24,10 @@ export function SearchPalette() {
 		return () => removeEventListener("keydown", onKey);
 	}, []);
 
+	// A modal <dialog>: Escape, the backdrop and focus come with it.
 	useEffect(() => {
-		if (open) input.current?.focus();
+		if (open) dialog.current?.showModal();
+		else dialog.current?.close();
 	}, [open]);
 
 	// Search as the visitor types, once they pause.
@@ -34,7 +37,6 @@ export function SearchPalette() {
 		return () => clearTimeout(timer);
 	}, [query, status]);
 
-	if (!open) return null;
 	// Closeness shown against the best hit: raw scores depend on the model.
 	const top = Math.max(0.01, hits[0]?.score ?? 1);
 
@@ -43,8 +45,7 @@ export function SearchPalette() {
 		void appStore.closeSearch();
 	};
 	const onKeyDown = (event: KeyboardEvent) => {
-		if (event.key === "Escape") void appStore.closeSearch();
-		else if (event.key === "ArrowDown") setCursor((c) => Math.min(c + 1, hits.length - 1));
+		if (event.key === "ArrowDown") setCursor((c) => Math.min(c + 1, hits.length - 1));
 		else if (event.key === "ArrowUp") setCursor((c) => Math.max(c - 1, 0));
 		else if (event.key === "Enter" && hits[cursor]) go(hits[cursor].note.slug);
 		else return;
@@ -52,10 +53,16 @@ export function SearchPalette() {
 	};
 
 	return (
-		<div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && void appStore.closeSearch()}>
-			<div className="palette" role="dialog" aria-label="Search the notebook">
+		<dialog
+			ref={dialog}
+			className="palette-dialog"
+			aria-label="Search the notebook"
+			onClose={() => void appStore.closeSearch()}
+			// Only the backdrop is the dialog itself: the palette fills it.
+			onMouseDown={(e) => e.target === e.currentTarget && dialog.current?.close()}
+		>
+			<div className="palette">
 				<input
-					ref={input}
 					value={query}
 					onChange={(e) => void appStore.setQuery(e.target.value)}
 					onKeyDown={onKeyDown}
@@ -101,6 +108,6 @@ export function SearchPalette() {
 					</>
 				)}
 			</div>
-		</div>
+		</dialog>
 	);
 }
