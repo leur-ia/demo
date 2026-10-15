@@ -37,6 +37,9 @@ jobs:
           node-version: 22
       - run: pnpm install --frozen-lockfile
         working-directory: leuria
+      # The showroom ships @leuria/connect from its dist: build the packages first.
+      - run: pnpm build
+        working-directory: leuria
       - run: pnpm install --frozen-lockfile
         working-directory: demo
       - run: pnpm build
