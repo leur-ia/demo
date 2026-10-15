@@ -3,96 +3,273 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fcfcfe">
 <title>Leuria showroom</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="Websites whose AI features run on the visitor's own AI: a shop, a notes site with search by meaning, and a field guide with a team builder.">
+<meta name="description" content="Five demo websites whose AI features run on the AI you already have, through Leuria on your computer: a shop, a notebook, a field guide, a bike workshop and a smart home.">
+<link rel="preload" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="tokens.css">
 <style>
+/*
+ * The sentence is the layout. One short claim at poster scale, and in it,
+ * where "your AI" would be, the visitor's actual AI: the page proves its
+ * claim about you. Leuria's own palette and type; no rules, no shadows,
+ * no gradients: space, tone and scale.
+ */
 @font-face { font-family: "Leuria Sans"; font-weight: 200 800; font-display: swap; src: url(fonts/plus-jakarta-sans-latin-wght-normal.woff2) format("woff2-variations"); }
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 "Leuria Sans", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-.hero {
-  position: relative; overflow: hidden; isolation: isolate; border-radius: var(--radius-6); margin: 24px 0 40px; padding: 64px 48px;
-  background:
-    radial-gradient(circle at 12% 12%, var(--atmo-blush) 0%, transparent 52%),
-    radial-gradient(circle at 88% 18%, var(--atmo-ice) 0%, transparent 54%),
-    radial-gradient(circle at 82% 92%, var(--atmo-mint) 0%, transparent 56%),
-    radial-gradient(circle at 14% 92%, var(--atmo-lavender) 0%, transparent 56%),
-    var(--atmo-base);
+:root {
+	--margin: clamp(16px, 2.5vw, 40px);
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+	--ease-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+	--t-press: 160ms;
+	--t-hover: 150ms;
+	--step-small: 14px;
+	--step-body: clamp(17px, 1rem + 0.25vw, 19px);
+	--step-lead: clamp(20px, 1.1rem + 0.7vw, 26px);
+	--step-head: clamp(32px, 1.6rem + 2.6vw, 64px);
 }
-.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 800; font-size: 26px; letter-spacing: -0.04em; text-decoration: none; }
-.hero h1 { margin: 28px 0 12px; max-width: 720px; font-size: clamp(36px, 6vw, 60px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); }
-.hero p { margin: 0; max-width: 600px; font-size: 18px; color: var(--pearl-12); }
-.demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(max(300px, calc(50% - 8px)), 1fr)); gap: 16px; margin-bottom: 48px; }
-.demo { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: var(--radius-4); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border), var(--shadow-1); text-decoration: none; transition: box-shadow var(--timing-fast) var(--easing-standard), transform var(--timing-fast) var(--easing-standard); }
-.demo:hover { box-shadow: inset 0 0 0 1px var(--border-strong), var(--shadow-3); transform: translateY(-2px); }
-.demo h2 { margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
-.demo p { margin: 0; color: var(--text-muted); font-size: 15px; }
-.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-.shows { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
-.shows span { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-text); }
-.also { display: inline-block; margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--accent-text); }
-.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding: 32px 0 56px; border-top: 1px solid var(--border); }
-.how h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
-.how p { margin: 0; font-size: 14px; color: var(--text-muted); }
-footer { padding: 24px 0 40px; font-size: 13px; color: var(--text-muted); }
-:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-@media (max-width: 640px) { .hero { padding: 40px 24px; } .wrap { padding: 0 16px; } }
-  .consent-link { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; background: var(--bg); color: var(--text); font: var(--step-body)/1.5 "Leuria Sans", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+h1, h2 { margin: 0; font-weight: 800; letter-spacing: -0.04em; line-height: 0.98; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+::selection { background: var(--lavender-5); }
+
+/* Feedback on every control */
+.button, .link, .try, .demo-link, .thumb { transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease, color var(--t-hover) ease, text-decoration-color var(--t-hover) ease; }
+.button:active, .try:active, .thumb:active { transform: scale(0.97); }
+.link { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.18em; text-decoration-thickness: 0.07em; }
+@media (hover: hover) and (pointer: fine) {
+	.link:hover { text-decoration-color: currentColor; }
+	.button:hover { background-color: var(--ink-hover); }
+	.try:hover { background-color: var(--pearl-4); }
+}
+
+/* ---------- The first screen: what this is, in words ---------- */
+/* One column, 1200px at most, on every screen: the whole page fits the eye. */
+.hero, .demos, .close { padding-left: max(var(--margin), calc((100% - 1200px) / 2)); padding-right: max(var(--margin), calc((100% - 1200px) / 2)); }
+.hero { padding-top: 20px; padding-bottom: 56px; }
+.nav { display: flex; align-items: center; gap: 24px; }
+.mark { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; letter-spacing: -0.03em; text-decoration: none; }
+.nav-links { display: flex; margin-left: auto; gap: 24px; font-size: var(--step-small); }
+.nav-links a { text-decoration: none; }
+.hero-body { max-width: 760px; margin: clamp(56px, 10vh, 120px) 0 0; display: flex; flex-direction: column; gap: 20px; }
+.hero h1 { font-size: clamp(36px, 4.2vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; }
+.support { font-size: var(--step-lead); line-height: 1.4; max-width: 60ch; }
+.hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+.you-line { display: inline-flex; align-items: center; gap: 8px; font-size: var(--step-body); color: var(--text-muted); }
+.you { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 0; border-radius: 999px; background: var(--pearl-3); color: var(--text); font: inherit; font-weight: 600; cursor: default; }
+.you[data-can-connect="true"] { cursor: pointer; }
+.you .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pearl-8); }
+.you[data-live="true"] .dot { background: var(--sage-9); }
+.you[data-live="true"] { background: var(--sage-3); color: var(--sage-11); }
+
+/* ---------- Each demo: its first screen, and what it shows ---------- */
+.demos { display: flex; flex-direction: column; gap: clamp(56px, 8vh, 96px); padding-top: clamp(40px, 6vh, 80px); padding-bottom: clamp(40px, 6vh, 80px); }
+.demo { display: grid; grid-template-columns: 7fr 5fr; column-gap: 40px; row-gap: 20px; align-items: start; }
+.demo-shot { grid-column: 1; grid-row: 1; margin: 0; background: var(--pearl-3); }
+.demo-shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.demo-text { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.demo h2 { font-size: clamp(26px, 2.4vw, 34px); }
+.demo-claim { font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; max-width: 28ch; text-wrap: balance; }
+.demo-what { max-width: 48ch; }
+.demo-shows { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: var(--step-small); color: var(--text-muted); max-width: 48ch; }
+.demo-link { font-size: var(--step-body); font-weight: 600; text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 0.07em; margin-top: 4px; }
+
+/* ---------- The close ---------- */
+.close { min-height: 60svh; background: var(--ink); color: var(--on-ink); display: grid; grid-template-rows: auto 1fr auto; padding-top: 40px; padding-bottom: 40px; }
+.close-top { display: flex; justify-content: space-between; gap: 32px; align-items: start; }
+.close-top p { max-width: 56ch; font-size: var(--step-body); }
+.close-line { align-self: end; font-size: clamp(40px, 6vw, 96px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; text-decoration: none; }
+.close-meta { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; margin-top: 32px; font-size: var(--step-small); }
+.close-meta > :nth-child(2) { text-align: center; }
+.consent-link { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+	.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+	.js .reveal.is-in { opacity: 1; transform: none; }
+	.js .demo-text.reveal > * { opacity: 0; transform: translateY(8px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+	.js .demo-text.reveal.is-in > * { opacity: 1; transform: none; }
+	.js .demo-text.reveal.is-in > :nth-child(2) { transition-delay: 70ms; }
+	.js .demo-text.reveal.is-in > :nth-child(3) { transition-delay: 140ms; }
+	.js .demo-text.reveal.is-in > :nth-child(4) { transition-delay: 210ms; }
+	.js .demo-text.reveal.is-in > :nth-child(5) { transition-delay: 280ms; }
+	/* The signature move: the first demo opens like a shutter while its picture settles. */
+	.js .shutter { clip-path: inset(0 100% 0 0); transition: clip-path 1100ms var(--ease-in-out); }
+	.js .shutter img { transform: scale(1.12); transition: transform 1500ms var(--ease-soft); }
+	.js .shutter.is-in { clip-path: inset(0); }
+	.js .shutter.is-in img { transform: none; }
+	/* The first screen rises part by part on load. */
+	.js .hero-body > * { animation: rise 600ms var(--ease-out) both; }
+	.js .hero-body > :nth-child(2) { animation-delay: 70ms; }
+	.js .hero-body > :nth-child(3) { animation-delay: 140ms; }
+	/* One moving picture: the band drifts a little as it passes. */
+	@supports (animation-timeline: view()) {
+		.drift img { animation: drift linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+	}
+}
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes drift { from { transform: translateY(-5%) scale(1.1); } to { transform: translateY(5%) scale(1.1); } }
+@media (prefers-reduced-motion: reduce) {
+	.button:active, .try:active, .thumb:active { transform: none; }
+}
+
+/* ---------- Phone: its own composition ---------- */
+@media (max-width: 860px) {
+	.hero { padding: 16px 16px 40px; }
+	.nav-links { gap: 12px; }
+	.nav-links a:not(:last-child) { display: none; }
+	.hero-body { margin-top: 40px; }
+	.hero h1 { font-size: 9vw; }
+	.support { font-size: 17px; }
+	.demos { gap: 56px; padding: 32px 16px; }
+	.demo { grid-template-columns: 1fr; }
+	.demo .demo-shot { grid-column: 1; grid-row: 1; }
+	.demo .demo-text { grid-column: 1; grid-row: 2; }
+	.close { padding: 32px 16px; }
+	.close-top { flex-direction: column; }
+	.close-line { font-size: 12vw; }
+	.close-meta { grid-template-columns: 1fr; gap: 10px; font-size: 13px; }
+	.close-meta > :nth-child(2) { text-align: left; }
+}
 </style>
   <!-- Visit counting on demo.leuria.dev, after the visitor's yes (shared/consent.js). -->
   <script src="/consent.js" defer></script>
 </head>
 <body>
-<div class="wrap">
-  <header class="hero">
-    <a class="logo" href="./">
-      <svg width="30" height="30" viewBox="53 30 256 256" aria-hidden="true"><path fill="currentColor" d="M181 61 C184 74 191 82 206 86 C191 90 184 98 181 111 C178 98 171 90 156 86 C171 82 178 74 181 61 Z M59 92 C60 109 67 128 79 143 C91 158 105 168 124 174 C149 182 164 193 171 207 C177 219 177 239 177 255 C182 255 182 240 184 226 C188 199 201 187 223 179 C247 171 270 158 284 142 C298 127 303 109 303 92 C298 91 292 101 284 108 C265 125 245 130 226 126 C217 124 211 114 205 112 C199 110 199 116 199 121 C198 127 191 130 181 130 C171 130 165 127 163 121 C162 116 165 110 159 111 C151 112 148 122 137 126 C118 131 98 125 78 109 C69 102 65 91 59 92 Z"/></svg>
+<header class="hero" id="top">
+  <nav class="nav" aria-label="Demos">
+    <a class="mark" href="./" aria-label="Leuria showroom">
+      <svg width="22" height="22" viewBox="53 30 256 256" aria-hidden="true"><path fill="currentColor" d="M181 61 C184 74 191 82 206 86 C191 90 184 98 181 111 C178 98 171 90 156 86 C171 82 178 74 181 61 Z M59 92 C60 109 67 128 79 143 C91 158 105 168 124 174 C149 182 164 193 171 207 C177 219 177 239 177 255 C182 255 182 240 184 226 C188 199 201 187 223 179 C247 171 270 158 284 142 C298 127 303 109 303 92 C298 91 292 101 284 108 C265 125 245 130 226 126 C217 124 211 114 205 112 C199 110 199 116 199 121 C198 127 191 130 181 130 C171 130 165 127 163 121 C162 116 165 110 159 111 C151 112 148 122 137 126 C118 131 98 125 78 109 C69 102 65 91 59 92 Z"/></svg>
       leuria
     </a>
-    <h1>Websites that run on your AI.</h1>
-    <p>Each demo below is a website whose AI features use the AI you already have, through Leuria on your computer. Without it, they fall back to your browser's AI or a small model in the page.</p>
-  </header>
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#notes">Notebook</a>
+      <a href="#dex">Field guide</a>
+      <a href="#bike">Workshop</a>
+      <a href="#home">Smart home</a>
+      <a href="https://leuria.eu">Get Leuria</a>
+    </div>
+  </nav>
 
-  <main class="demos">
-    <a class="demo" href="shop/">
-      <span class="eyebrow">Shop</span>
-      <h2>Kiln &amp; Co.</h2>
-      <p>A mug shop with an assistant that looks up prices and stock with the page's own tools, and an order form filled in from a free-text message.</p>
-      <span class="also">Also in plain HTML, without a framework: see the link in the shop.</span>
-      <div class="shows"><span>Connect button</span><span>Page tools</span><span>Structured output</span></div>
-    </a>
-    <a class="demo" href="notes/">
-      <span class="eyebrow">Notes</span>
-      <h2>Maren's notebook</h2>
-      <p>A potter's digital garden. Search it by meaning, see notes related in meaning, and ask questions answered from the notes with links to them.</p>
-      <div class="shows"><span>Search by meaning</span><span>Related notes</span><span>Answers with sources</span></div>
-    </a>
-    <a class="demo" href="dex/">
-      <span class="eyebrow">Field guide</span>
-      <h2>Hollowmark</h2>
-      <p>A guide to 48 original creatures. Describe one in your own words to find it, and have the AI build a team for a trip or an opponent.</p>
-      <div class="shows"><span>Search by meaning</span><span>Similar entries</span><span>Team builder</span></div>
-    </a>
-    <a class="demo" href="bike/">
-      <span class="eyebrow">Workshop</span>
-      <h2>Rayon Cycles</h2>
-      <p>A bike workshop whose help desk follows the mechanics' own guides: tracking down a noise, checking the warranty, booking a repair you confirm yourself.</p>
-      <div class="shows"><span>Skills</span><span>Page tools</span><span>Bookings you confirm</span></div>
-    </a>
-  </main>
+  <div class="hero-body">
+    <h1>Five websites that run on your AI.</h1>
+    <p class="support">A shop, a notebook, a field guide, a bike workshop and a smart home. Their AI features use the AI you already have, an agent you sign in to, an OpenAI-compatible API with your key, or a model on your computer, through <a class="link" href="https://leuria.eu/#how">Leuria</a>. Without Leuria, they fall back to your browser's AI or a small model in the page.</p>
+    <div class="hero-actions">
+      <leuria-connect-button size="3"></leuria-connect-button>
+      <p class="you-line">Your AI here: <button type="button" class="you" id="you" data-live="false" data-can-connect="false" aria-live="polite"><span class="dot" aria-hidden="true"></span><span id="you-name">none yet</span></button></p>
+    </div>
+  </div>
+</header>
 
-  <section class="how">
-    <div><h3>Your AI, your choice</h3><p>Leuria connects the AI you already use, or a model on your computer. You approve each site once.</p></div>
-    <div><h3>The site can't see your files</h3><p>A site only talks to your AI through tools its own page provides.</p></div>
-    <div><h3>Search stays on your device</h3><p>The notes and the guide are indexed in your browser, with your own model or a small one in the page.</p></div>
+<main class="demos">
+  <section class="demo" id="shop" aria-labelledby="shop-title">
+    <div class="demo-text reveal">
+      <h2 id="shop-title">Kiln &amp; Co.</h2>
+      <p class="demo-claim">A shop whose assistant sells from the page's own stock.</p>
+      <p class="demo-what">Kiln &amp; Co. sells three mugs. Ask which one is cheapest, or how many blue ones are left: the AI calls the page's own functions and answers from what they return, never from guesswork. A free-text message fills the order form.</p>
+      <p class="demo-shows">Connect button · Page tools · Structured output · Also in plain HTML</p>
+      <a class="demo-link" href="shop/">Open Kiln &amp; Co.</a>
+    </div>
+    <figure class="demo-shot reveal"><img src="shots/shop.jpg" width="1440" height="900" alt="The Kiln & Co. demo shop: three mugs, their prices and stock, and the Connect your AI button" fetchpriority="high"></figure>
   </section>
-  <footer>These demos are examples: no mug will be shipped, no bike repaired. · <button type="button" class="consent-link" data-consent-open>Visit counting</button></footer>
-</div>
+
+  <section class="demo" id="notes" aria-labelledby="notes-title">
+    <div class="demo-text reveal">
+      <h2 id="notes-title">Maren's notebook</h2>
+      <p class="demo-claim">A notebook you search by meaning, on your own machine.</p>
+      <p class="demo-what">Maren's notebook, a potter's digital garden. Search “a glaze that looks like jade” and find celadon; see notes related in meaning; ask a question and get an answer with links to the notes it came from. The index is built in your browser with your own embedding model.</p>
+      <p class="demo-shows">Search by meaning · Related notes · Answers with sources</p>
+      <a class="demo-link" href="notes/">Open the notebook</a>
+    </div>
+    <figure class="demo-shot reveal"><img src="shots/notes.jpg" width="1440" height="900" alt="Maren's notebook: a list of notes and a search by meaning" loading="lazy"></figure>
+  </section>
+
+  <section class="demo" id="dex" aria-labelledby="dex-title">
+    <div class="demo-text reveal">
+      <h2 id="dex-title">Hollowmark</h2>
+      <p class="demo-claim">A field guide to 48 creatures that never existed.</p>
+      <p class="demo-what">Hollowmark. Describe one in your own words to find it, see the ones most like it, and have the AI build a team for a trip or an opponent, from the guide's own entries.</p>
+      <p class="demo-shows">Search by meaning · Similar entries · Team builder</p>
+      <a class="demo-link" href="dex/">Open Hollowmark</a>
+    </div>
+    <figure class="demo-shot reveal"><img src="shots/dex.jpg" width="1440" height="900" alt="The Hollowmark field guide: a grid of creature entries" loading="lazy"></figure>
+  </section>
+
+  <section class="demo" id="bike" aria-labelledby="bike-title">
+    <div class="demo-text reveal">
+      <h2 id="bike-title">Rayon Cycles</h2>
+      <p class="demo-claim">A workshop whose help desk follows the mechanics' own guides.</p>
+      <p class="demo-what">Rayon Cycles. Tell the help desk what the bike does and it works through the workshop's skills: how they track down a noise, what the warranty covers, how booking works. A repair is booked only when you confirm it yourself.</p>
+      <p class="demo-shows">Skills · Page tools · Bookings you confirm</p>
+      <a class="demo-link" href="bike/">Open Rayon Cycles</a>
+    </div>
+    <figure class="demo-shot reveal"><img src="shots/bike.jpg" width="1440" height="900" alt="Rayon Cycles: the workshop's services and its help desk" loading="lazy"></figure>
+  </section>
+
+  <section class="demo" id="home" aria-labelledby="home-title">
+    <div class="demo-text reveal">
+      <h2 id="home-title">Hearth</h2>
+      <p class="demo-claim">A house that decides before anyone speaks.</p>
+      <p class="demo-what">Hearth. Say “turn off the kitchen lights and lock the office door”: a decision model on your computer reads it in one call, twelve questions at once, each with its probability. Your AI only speaks to split a request or to answer something that isn't about the house.</p>
+      <p class="demo-shows">Decisions · Decision trace · Chat only for words</p>
+      <a class="demo-link" href="home/">Open Hearth</a>
+    </div>
+    <figure class="demo-shot reveal"><img src="shots/home.jpg" width="1440" height="900" alt="Hearth: the house's devices by room, and the decision trace" loading="lazy"></figure>
+  </section>
+</main>
+
+<footer class="close">
+  <div class="close-top">
+    <p>These demos are examples. No mug will be shipped, no bike repaired, no light switched. Everything the AI does in them, it does from the page, with your AI.</p>
+    <a class="link" href="#top">Back to top</a>
+  </div>
+  <a class="close-line" href="https://leuria.dev">leuria.dev</a>
+  <div class="close-meta">
+    <span><a class="link" href="https://github.com/leur-ia/demo"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a> · <a class="link" href="https://github.com/leur-ia/leuria">Leuria</a></span>
+    <span><button type="button" class="consent-link" data-consent-open>Visit counting</button></span>
+    <span>Leuria · 2026</span>
+  </div>
+</footer>
+
+<script type="module">
+  import { createAI, leuria, promptAPI, setDefaultClient } from "./leuria/standalone.js";
+
+  document.documentElement.classList.add("js");
+
+  // The sentence's slot shows the AI these demos would use on this computer, live.
+  const ai = createAI({ providers: [leuria({ app: "Leuria showroom" }), promptAPI()] });
+  setDefaultClient(ai);
+  const you = document.getElementById("you");
+  const name = document.getElementById("you-name");
+
+  const show = () => {
+    const { providers, active } = ai.getState();
+    const bridge = providers.find((p) => p.id === "bridge");
+    const live = bridge?.status === "ready" && bridge.model ? bridge.model : active?.id === "browser" ? "your browser's AI" : null;
+    name.textContent = live ?? (bridge?.status === "needs-action" ? "connect Leuria" : "none yet");
+    you.dataset.live = String(Boolean(live));
+    you.dataset.canConnect = String(bridge?.status === "needs-action");
+  };
+  ai.subscribe(show);
+  show();
+  you.addEventListener("click", () => { if (you.dataset.canConnect === "true") void ai.connect().catch(() => undefined); });
+
+  // Each section's parts rise once as it enters.
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("is-in"); seen.unobserve(e.target); }
+  }, { rootMargin: "0px 0px 0px 0px", threshold: 0.1 });
+  for (const el of document.querySelectorAll(".reveal")) seen.observe(el);
+</script>
 </body>
 </html>

@@ -8,6 +8,7 @@ Websites whose AI features run on the visitor's own AI, through [Leuria](https:/
 | `notes/` | Maren's notebook, a potter's digital garden: search by meaning, related notes, answers with links to the notes |
 | `dex/` | The Hollowmark field guide, 48 original creatures: search by meaning, similar creatures, an AI team builder |
 | `bike/` | Rayon Cycles, a bike workshop: a help desk guided by the workshop's skills (its own, from `.well-known/agent-skills`, and a shared one from `skills/`), bookings the visitor confirms |
+| `home/` | Hearth, a smart home: every request read by a decision model on the visitor's computer in one call (kind, rooms, device, action, compound); their AI only speaks to split a request or to chat |
 | `showroom/` | The page that links them all |
 
 ```sh
@@ -16,6 +17,7 @@ pnpm shop       # http://localhost:5173
 pnpm notes      # http://localhost:5175
 pnpm dex        # http://localhost:5176
 pnpm bike       # http://localhost:5177
+pnpm home       # http://localhost:5178
 pnpm build      # every demo as one static site in dist/ (pnpm serve to look: http://localhost:4173)
 ```
 

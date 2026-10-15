@@ -1,0 +1,27 @@
+{
+  "name": "@leuria-demo/home",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A smart home whose assistant decides with a model on the visitor's computer, and only talks through their AI when words are needed.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@leuria/client": "^0.1.0",
+    "@leuria/react": "^0.1.0",
+    "@leuria/react-connect": "^0.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.0"
+  }
+}

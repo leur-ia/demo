@@ -44,10 +44,9 @@ export function App() {
 
 			<main id="top">
 				<section className="hero">
-					<p className="kicker">Bike workshop · Lyon, Croix-Rousse</p>
 					<h1>Tell us what the bike does. We'll tell you what it needs.</h1>
 					<p className="lede">
-						A demo workshop. Its help desk runs on <em>your</em> AI, and follows our mechanics' own guides: how we track down a noise, what our
+						A bike workshop in Lyon, Croix-Rousse. A demo: its help desk runs on <em>your</em> AI, and follows our mechanics' own guides: how we track down a noise, what our
 						warranty covers, how booking works. Connect your AI, then ask.
 					</p>
 				</section>

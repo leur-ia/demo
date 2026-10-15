@@ -2,3 +2,6 @@ node_modules
 dist
 *.tsbuildinfo
 .DS_Store
+
+# taste-skill working files (direction sheet, inspector screenshots)
+.taste-skill/

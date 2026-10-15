@@ -3,30 +3,31 @@
 
 :root {
 	color-scheme: light dark;
-	--bg: #f5efe6;
-	--paper: #fffaf3;
-	--ink: #2a1f17;
-	--muted: #75665a;
-	--line: #e4d8c8;
-	--clay: #b0512b;
-	--clay-hover: #963f1d;
-	--clay-soft: #f3e0d2;
+	/* Porcelain white, graphite ink, a celadon glaze for the one accent. */
+	--bg: #f2f4f3;
+	--paper: #ffffff;
+	--ink: #171d1c;
+	--muted: #5f6b69;
+	--line: #dde3e1;
+	--clay: #1f7a6d;
+	--clay-hover: #16635a;
+	--clay-soft: #dcefeb;
 	--chat-accent: var(--clay);
-	--sage: #4f7a55;
-	--serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+	--sage: #2e7d4f;
+	--serif: "Avenir Next", "Helvetica Neue", "Segoe UI Variable", ui-sans-serif, system-ui, sans-serif;
 	--sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #1a1511;
-		--paper: #231c17;
-		--ink: #f1e8dc;
-		--muted: #b3a393;
-		--line: #3a2f27;
-		--clay: #e0895c;
-		--clay-hover: #eba07a;
-		--clay-soft: #3b2a20;
-		--sage: #8fbb93;
+		--bg: #121716;
+		--paper: #1a2120;
+		--ink: #e9eeec;
+		--muted: #9aa8a5;
+		--line: #2a3331;
+		--clay: #4fc2ae;
+		--clay-hover: #6fd1c0;
+		--clay-soft: #163631;
+		--sage: #6fc393;
 	}
 }
 
@@ -42,7 +43,7 @@ body {
 /* The shop's own element styles: Leuria's pieces must look the same despite them. */
 button { font: inherit; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.03em; margin: 0; }
 
 /* ---------- Top bar ---------- */
 .topbar {
@@ -63,7 +64,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01e
 	gap: 32px;
 }
 .brand { font-family: var(--serif); font-size: 24px; font-weight: 700; text-decoration: none; letter-spacing: -0.02em; }
-.brand span { color: var(--clay); font-style: italic; }
+.brand span { color: var(--clay); }
 .nav { display: flex; gap: 24px; font-size: 15px; }
 .nav a { text-decoration: none; color: var(--muted); }
 .nav a:hover { color: var(--ink); }

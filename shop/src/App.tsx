@@ -38,10 +38,9 @@ export function App() {
 
 			<main id="top">
 				<section className="hero">
-					<p className="kicker">Stoneware, thrown and fired in Lyon</p>
 					<h1>Mugs for slow mornings.</h1>
 					<p className="lede">
-						A demo shop. Its assistant and its order form run on <em>your</em> AI: connect it once and it answers here, without the
+						Stoneware, thrown and fired in Lyon. A demo shop: its assistant and its order form run on <em>your</em> AI: connect it once and it answers here, without the
 						shop paying for it or seeing your files.
 					</p>
 				</section>

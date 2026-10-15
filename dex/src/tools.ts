@@ -31,17 +31,18 @@ export const guideTools = [
 				rare: /rare/i.test(c.species),
 			})),
 	}),
-	defineTool<{ id: number }>({
+	defineTool<{ ids: number[] }>({
 		name: "get_creature",
-		description: "A creature's full entry: description, habitat, stats, abilities.",
-		inputSchema: { type: "object", properties: { id: { type: "integer" } }, required: ["id"] },
+		description: "Full entries for one or several creatures (description, habitat, stats, abilities). Ask for all the ids you need in one call.",
+		inputSchema: { type: "object", properties: { ids: { type: "array", items: { type: "integer" }, maxItems: 12 } }, required: ["ids"] },
 		annotations: { readOnlyHint: true },
-		execute: ({ id }) => {
-			const c = creatureById.get(id);
-			if (!c) throw new Error(`No creature ${id}`);
-			const { colors: _colors, shape: _shape, ...entry } = c;
-			return entry;
-		},
+		execute: ({ ids }) =>
+			ids.map((id) => {
+				const c = creatureById.get(id);
+				if (!c) throw new Error(`No creature ${id}`);
+				const { colors: _colors, shape: _shape, ...entry } = c;
+				return entry;
+			}),
 	}),
 	defineTool({
 		name: "element_chart",
